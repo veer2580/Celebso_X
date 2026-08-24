@@ -337,6 +337,7 @@ html.light-mode .bg-\[\#ffca05\].text-white{
 }
 
 html.light-mode .text-gray-400,
+html.light-mode .text-gray-500,
 html.light-mode .text-dark-textMuted{
     color:#5c5d68 !important;
 }

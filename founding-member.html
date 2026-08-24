@@ -15,7 +15,7 @@
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Main site stylesheet -->
-    <link rel="stylesheet" href="css/style.css?v=2">
+    <link rel="stylesheet" href="css/style.css?v=3">
     <!-- Theme (light mode) -->
     <link rel="stylesheet" href="css/theme.css?v=2">
 
@@ -390,6 +390,168 @@
             margin-bottom: 40px;
         }
 
+        /* ==================================================
+           RESPONSIVE — TABLETS & PHONES
+           ================================================== */
+
+        @media (max-width: 900px) {
+            .hero h1 { font-size: 46px; }
+
+            .features-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 36px 20px;
+            }
+            .feature-item:nth-child(2)::after { display: none; }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 40px; }
+
+            /* Shimmering gold headline */
+            .hero h1 .highlight {
+                background: var(--gold-gradient);
+                background-size: 200% auto;
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+                animation: fmShimmer 3s linear infinite;
+            }
+            @keyframes fmShimmer { to { background-position: 200% center; } }
+
+            /* Glowing form panel */
+            .form-wrapper {
+                padding: 36px 24px;
+                box-shadow: 0 0 60px rgba(111, 66, 193, 0.28), 0 20px 50px rgba(0, 0, 0, 0.45);
+            }
+
+            /* Soft gold focus glow on inputs */
+            .input-wrapper input { transition: border 0.3s, box-shadow 0.3s; }
+            .input-wrapper input:focus {
+                border-color: rgba(242, 183, 76, 0.55);
+                box-shadow: 0 0 0 4px rgba(242, 183, 76, 0.09);
+            }
+
+            /* Shimmering CTA */
+            .btn-submit {
+                background-size: 200% auto;
+                animation: fmShimmer 3s linear infinite;
+                box-shadow: 0 10px 26px rgba(242, 183, 76, 0.22);
+                transition: transform 0.2s ease, box-shadow 0.2s ease;
+            }
+            .btn-submit:active {
+                transform: scale(0.97);
+                box-shadow: 0 6px 16px rgba(242, 183, 76, 0.18);
+            }
+
+            /* Floating rocket */
+            .launch-banner { gap: 12px; }
+            .launch-banner i {
+                display: inline-block;
+                animation: fmFloat 2s ease-in-out infinite;
+            }
+            @keyframes fmFloat {
+                0%, 100% { transform: translateY(0); }
+                50%      { transform: translateY(-5px); }
+            }
+        }
+
+        /* Neutralize home-page full-bleed hero rules on small screens */
+        @media (max-width: 850px) {
+            .hero {
+                width: auto;
+                min-height: 0;
+                margin-left: 0;
+                margin-right: 0;
+                padding: 0;
+                background: transparent;
+                background-image: none;
+                box-shadow: none;
+                border: 0;
+                border-radius: 0;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .container { padding: 0 16px; }
+
+            /* Hero */
+            .hero { margin-top: 28px; }
+            .hero h1 { font-size: clamp(32px, 10vw, 38px); }
+            .hero p {
+                font-size: 14px;
+                margin-bottom: 32px;
+                padding: 0 8px;
+            }
+            .eyebrow { font-size: 11px; gap: 10px; letter-spacing: 1.6px; }
+            .eyebrow::before,
+            .eyebrow::after { width: 24px; }
+
+            /* Form panel */
+            .form-wrapper { padding: 26px 18px; border-radius: 16px; }
+            .profile-icon {
+                margin-top: -58px;
+                width: 52px;
+                height: 52px;
+                font-size: 20px;
+                background: #070812;
+                box-shadow: 0 0 0 5px rgba(242, 183, 76, 0.08), 0 0 26px rgba(138, 43, 226, 0.35);
+            }
+            .form-header { margin-bottom: 24px; }
+            .form-header h2 { font-size: 20px; }
+            .form-header p { font-size: 13px; }
+
+            .input-group { margin-bottom: 16px; }
+            .input-group label { font-size: 13px; }
+            .input-wrapper input {
+                padding: 14px 12px 14px 42px;
+                font-size: 16px; /* prevents iOS auto-zoom on focus */
+                border-radius: 10px;
+            }
+            .btn-submit {
+                padding: 15px;
+                font-size: 13px;
+                border-radius: 10px;
+                margin-top: 24px;
+            }
+            .security-badge { font-size: 11px; }
+
+            /* Features: single cohesive panel like the form */
+            .features-container {
+                grid-template-columns: 1fr;
+                gap: 26px;
+                padding: 26px 18px;
+                margin-top: 44px;
+                border-radius: 20px;
+                box-shadow: 0 0 60px rgba(111, 66, 193, 0.28), 0 20px 50px rgba(0, 0, 0, 0.45);
+            }
+            .feature-item { padding: 0; }
+            .feature-item::after { display: none; }
+
+            /* Launch banner stacks neatly */
+            .launch-banner {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+                margin: 44px 0 36px;
+            }
+            .launch-banner h3 { font-size: 17px; }
+            .launch-banner i { font-size: 18px; }
+            .launch-banner::before,
+            .launch-banner::after { display: none; }
+
+            /* Background decor scaled down */
+            .bg-x-top { font-size: 200px; top: 16px; right: -28px; }
+            .bg-x-bottom { font-size: 150px; bottom: -80px; }
+        }
+
+        /* Respect reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            .hero h1 .highlight,
+            .btn-submit,
+            .launch-banner i {
+                animation: none !important;
+            }
+        }
     </style>
 </head>
 <body>

@@ -15,7 +15,7 @@
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <!-- Shared Navbar Styles -->
-    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/navbar.css?v=2">
     <!-- Shared Footer Styles -->
     <link rel="stylesheet" href="css/footer.css">
     <!-- Theme (light mode) -->
@@ -83,6 +83,10 @@
             backdrop-filter: blur(10px);
             border: 1px solid #1f1f1f;
         }
+
+        /* Hero subtitle: white in dark mode, muted in light mode */
+        .hero-sub { color: #ffffff; }
+        html.light-mode .hero-sub { color: #5c5d68; }
     
         .reveal{opacity:0;}
         .reveal.visible{animation:revealIn .6s ease both;}
@@ -157,7 +161,7 @@
                 Built for Creators.<br>
                 Driven by Connection<span class="text-dark-red">.</span>
             </h1>
-            <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+            <p class="hero-sub text-lg max-w-2xl mx-auto">
                 Celebso is more than a social platform — it's a movement to empower creators, build communities and shape the future of digital connection.
             </p>
         </div>

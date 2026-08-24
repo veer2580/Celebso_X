@@ -34,43 +34,346 @@
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <!-- Shared Navbar Styles -->
-    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/navbar.css?v=2">
     <!-- Shared Footer Styles -->
     <link rel="stylesheet" href="css/footer.css">
     <!-- Theme (light mode) -->
     <link rel="stylesheet" href="css/theme.css">
-    
+
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #050505;
+            background:
+                radial-gradient(circle at 70% 15%, #17103b 0%, transparent 27%),
+                radial-gradient(circle at 20% 65%, #160d2a 0%, transparent 25%),
+                #070812;
             color: #f3f4f6;
         }
 
-        .hero-glow {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 600px;
-            background: radial-gradient(circle at top center, rgba(255, 202, 5, 0.15) 0%, transparent 60%);
-            z-index: 0;
-            pointer-events: none;
+        html.light-mode body {
+            background:
+                radial-gradient(circle at 70% 15%, #ece7ff 0%, transparent 27%),
+                radial-gradient(circle at 20% 65%, #ffe8f2 0%, transparent 25%),
+                #f6f7fb;
+            color: #17181f;
         }
 
-        .glass-card {
-            background: rgba(10, 10, 10, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid #1f1f1f;
-        }
-    
         .reveal{opacity:0;}
         .reveal.visible{animation:revealIn .6s ease both;}
         @keyframes revealIn{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:translateY(0);}}
         @media(prefers-reduced-motion:reduce){.reveal{opacity:1;}}
+
+        /* ==================================================
+           LEGAL CENTRE LAYOUT
+           ================================================== */
+
+        /* Branded strip under navbar */
+        .legal-bar {
+            background: #14213D;
+            border-bottom: 1px solid rgba(255,255,255,.1);
+        }
+
+        .legal-bar .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: rgba(255,255,255,.75);
+            transition: color .2s;
+        }
+        .legal-bar .back-link:hover { color: #fff; }
+
+        .legal-bar .brand {
+            display: none;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .16em;
+            color: #D7A84A;
+        }
+        @media(min-width:640px){ .legal-bar .brand { display:inline-flex; } }
+
+        /* Hero */
+        .lg-hero {
+            position: relative;
+            overflow: hidden;
+            background: #0C1933;
+            border-bottom: 1px solid rgba(255,255,255,.1);
+        }
+        .lg-hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 90% 10%, rgba(215,168,74,.18), transparent 30%),
+                radial-gradient(circle at 5% 95%, rgba(255,202,5,.07), transparent 28%);
+            pointer-events: none;
+        }
+        .lg-hero-inner { position: relative; }
+
+        .lg-eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .2em;
+            color: #ffca05;
+        }
+
+        .lg-title {
+            margin-top: 20px;
+            font-size: clamp(34px, 5vw, 60px);
+            font-weight: 600;
+            line-height: 1.04;
+            letter-spacing: -.035em;
+            color: #fff;
+        }
+
+        .lg-summary {
+            margin-top: 24px;
+            max-width: 720px;
+            font-size: 16px;
+            line-height: 1.75;
+            color: rgba(255,255,255,.65);
+        }
+        @media(min-width:640px){ .lg-summary { font-size:18px; } }
+
+        .lg-pills { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 10px; }
+
+        .lg-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,.12);
+            background: rgba(255,255,255,.05);
+            font-size: 12px;
+            font-weight: 600;
+            color: rgba(255,255,255,.85);
+        }
+        @media(min-width:640px){ .lg-pill { font-size:14px; } }
+
+        html.light-mode .lg-hero { background: #F2EEE5; border-bottom-color: rgba(20,33,61,.1); }
+        html.light-mode .lg-title { color: #14213D; }
+        html.light-mode .lg-summary { color: rgba(20,33,61,.65); }
+        html.light-mode .lg-eyebrow { color: #9B6B16; }
+        html.light-mode .lg-pill {
+            border-color: rgba(20,33,61,.12);
+            background: rgba(255,255,255,.7);
+            color: #14213D;
+        }
+
+        /* Layout grid */
+        .lg-wrap { max-width: 1240px; margin: 0 auto; padding: 48px 20px 64px; }
+        .lg-grid { display: grid; gap: 44px; }
+        @media(min-width:1024px){
+            .lg-wrap { padding: 64px 40px 80px; }
+            .lg-grid { grid-template-columns: 270px minmax(0,1fr); }
+        }
+
+        /* Sidebar TOC */
+        .lg-toc-title {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .17em;
+            color: rgba(255,255,255,.5);
+        }
+        html.light-mode .lg-toc-title { color: rgba(20,33,61,.55); }
+
+        .lg-toc { margin-top: 16px; border-left: 1px solid rgba(255,255,255,.15); }
+        html.light-mode .lg-toc { border-left-color: rgba(20,33,61,.16); }
+
+        .lg-toc a {
+            display: block;
+            border-left: 2px solid transparent;
+            margin-left: -1px;
+            padding: 8px 0 8px 16px;
+            font-size: 14px;
+            line-height: 1.4;
+            color: rgba(255,255,255,.55);
+            transition: border-color .2s, color .2s;
+        }
+        .lg-toc a:hover { border-left-color: #ffca05; color: #fff; }
+        .lg-toc a .num { margin-right: 6px; font-weight: 600; color: #ffca05; }
+        html.light-mode .lg-toc a { color: rgba(20,33,61,.58); }
+        html.light-mode .lg-toc a:hover { border-left-color: #B57C1B; color: #14213D; }
+        html.light-mode .lg-toc a .num { color: #9B6B16; }
+
+        /* Mobile collapsible TOC */
+        .lg-toc-details {
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,.1);
+            background: rgba(255,255,255,.03);
+            padding: 16px;
+        }
+        .lg-toc-details summary {
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .17em;
+            color: rgba(255,255,255,.55);
+        }
+        .lg-toc-details[open] { padding-bottom: 20px; }
+        html.light-mode .lg-toc-details { border-color: rgba(20,33,61,.12); background: rgba(255,255,255,.7); }
+        html.light-mode .lg-toc-details summary { color: rgba(20,33,61,.55); }
+        @media(min-width:1024px){
+            .lg-toc-mobile { display: none; }
+            .lg-toc-desktop { display: block; }
+            aside.lg-side { position: sticky; top: 90px; align-self: start; max-height: calc(100vh - 120px); overflow-y: auto; padding-right: 16px; }
+        }
+        @media(max-width:1023px){
+            .lg-toc-mobile { display: block; }
+            .lg-toc-desktop { display: none; }
+        }
+
+        /* Notice callout */
+        .lg-notice {
+            border-radius: 16px;
+            border: 1px solid rgba(255,202,5,.28);
+            background: rgba(255,202,5,.08);
+            padding: 22px;
+            font-size: 14px;
+            line-height: 1.75;
+            color: #f2e5bd;
+        }
+        @media(min-width:640px){ .lg-notice { padding: 24px; } }
+        html.light-mode .lg-notice {
+            border-color: rgba(181,124,27,.35);
+            background: #FFF9EB;
+            color: #493814;
+        }
+
+        /* Sections */
+        .lg-section {
+            scroll-margin-top: 100px;
+            padding-bottom: 48px;
+            border-bottom: 1px solid rgba(255,255,255,.1);
+        }
+        .lg-section:last-child { border-bottom: 0; padding-bottom: 0; }
+        html.light-mode .lg-section { border-bottom-color: rgba(20,33,61,.1); }
+
+        .lg-sec-head { display: flex; align-items: flex-start; gap: 16px; }
+
+        .lg-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 36px;
+            min-height: 36px;
+            padding: 0 8px;
+            border-radius: 10px;
+            background: #ffca05;
+            color: #141400;
+            font-size: 12px;
+            font-weight: 700;
+        }
+        html.light-mode .lg-badge { background: #14213D; color: #fff; }
+
+        .lg-section h2 {
+            padding-top: 2px;
+            font-size: clamp(22px, 3vw, 30px);
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -.02em;
+        }
+
+        .lg-copy { margin-top: 20px; }
+        @media(min-width:640px){ .lg-copy { margin-left: 52px; } }
+
+        .lg-copy p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: rgba(255,255,255,.68);
+        }
+        .lg-copy p + p { margin-top: 12px; }
+        html.light-mode .lg-copy p { color: rgba(20,33,61,.72); }
+
+        .lg-list { list-style: none; padding: 0; margin-top: 12px; display: flex; flex-direction: column; gap: 10px; }
+        .lg-list li { display: flex; gap: 12px; font-size: 15px; line-height: 1.7; color: rgba(255,255,255,.68); }
+        html.light-mode .lg-list li { color: rgba(20,33,61,.72); }
+
+        .lg-check {
+            flex-shrink: 0;
+            margin-top: 3px;
+            width: 17px;
+            height: 17px;
+            color: #ffca05;
+        }
+        html.light-mode .lg-check { color: #087F6B; }
+
+        /* CTA card */
+        .lg-cta {
+            margin-top: 56px;
+            border-radius: 24px;
+            background: #14213D;
+            padding: 30px;
+            color: #fff;
+        }
+        @media(min-width:640px){
+            .lg-cta { padding: 38px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+        }
+        .lg-cta .mail-icon { font-size: 26px; color: #ffca05; margin-bottom: 12px; display: inline-block; }
+        .lg-cta h2 { font-size: 24px; font-weight: 600; }
+        .lg-cta p { margin-top: 8px; max-width: 480px; font-size: 14px; line-height: 1.6; color: rgba(255,255,255,.6); }
+        .lg-cta .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 24px;
+            padding: 12px 20px;
+            border-radius: 12px;
+            background: #ffca05;
+            color: #14213D;
+            font-weight: 600;
+            transition: background .2s, transform .2s;
+        }
+        .lg-cta .btn:hover { background: #fff; transform: translateY(-1px); }
+        @media(min-width:640px){ .lg-cta .btn { margin-top: 0; flex-shrink: 0; } }
+
+        /* Other documents */
+        .lg-other { border-top: 1px solid rgba(255,255,255,.1); background: rgba(255,255,255,.02); }
+        html.light-mode .lg-other { border-top-color: rgba(20,33,61,.1); background: rgba(255,255,255,.6); }
+        .lg-other-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
+        .lg-other-head h2 { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: .16em; }
+        .lg-other-head a { font-size: 14px; font-weight: 600; color: #ffca05; }
+        .lg-other-head a:hover { text-decoration: underline; }
+        html.light-mode .lg-other-head a { color: #9B6B16; }
+
+        .lg-docs { display: grid; gap: 12px; }
+        @media(min-width:640px){ .lg-docs { grid-template-columns: repeat(2,1fr); } }
+        @media(min-width:1024px){ .lg-docs { grid-template-columns: repeat(3,1fr); } }
+
+        .lg-doc-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,.1);
+            background: rgba(255,255,255,.03);
+            font-size: 14px;
+            font-weight: 600;
+            transition: transform .2s, border-color .2s, box-shadow .2s;
+        }
+        .lg-doc-card:hover { transform: translateY(-2px); border-color: rgba(255,202,5,.5); box-shadow: 0 10px 24px rgba(0,0,0,.25); }
+        .lg-doc-card i { flex-shrink: 0; }
+        html.light-mode .lg-doc-card { border-color: rgba(20,33,61,.12); background: #fff; color: #14213D; }
     </style>
 </head>
-<body class="bg-dark-bg antialiased">
+<body class="antialiased">
 
     <!-- Header -->
     <header class="navbar">
@@ -106,173 +409,245 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <main relative class="max-w-4xl mx-auto px-6 py-16">
-        
-        <!-- Hero Section --><div class="hero-glow"></div>
-        <div class="text-center mb-16 reveal">
-            <div class="w-16 h-16 bg-dark-card rounded-full mx-auto flex items-center justify-center mb-6 relative">
-                <i class="ph ph-file-text text-3xl text-dark-red"></i>
-                <div class="absolute bottom-3 right-3 bg-dark-bg rounded-full">
-                    <i class="ph-fill ph-shield-check text-dark-red text-sm"></i>
-                </div>
-            </div>
-            <h1 class="text-4xl md:text-5xl font-bold mb-4 tracking-tight">Terms & Conditions</h1>
-            <p class="text-dark-textMuted text-base md:text-lg mb-2">Please read these Terms & Conditions carefully before using Celebso.</p>
-            <p class="text-dark-textMuted text-base md:text-lg mb-6">By accessing or using our platform, you agree to be bound by these terms.</p>
-            <p class="text-dark-textMuted text-sm">Last updated: May 18, 2025</p>
+    <!-- Legal centre strip -->
+    <div class="legal-bar">
+        <div class="max-w-[1240px] mx-auto flex items-center justify-between gap-4 px-5 py-4 sm:px-8 lg:px-10">
+            <a href="help-center.html" class="back-link"><i class="ph ph-arrow-left"></i> Legal centre</a>
+            <div class="brand"><i class="ph ph-scales"></i> Celebso Legal</div>
         </div>
+    </div>
 
-        <!-- Terms List -->
-        <div class="flex flex-col">
-            
-            <!-- Item 1 -->
-            <div class="flex gap-6 py-8 border-t border-dark-border hover:bg-dark-card/40 transition duration-300 reveal">
-                <div class="w-12 h-12 rounded-full bg-dark-card flex items-center justify-center flex-shrink-0">
-                    <span class="text-dark-red font-bold text-lg">1</span>
-                </div>
-                <div>
-                    <h3 class="text-lg font-bold text-white mb-2">Acceptance of Terms</h3>
-                    <p class="text-dark-textMuted leading-relaxed text-[15px]">
-                        By creating an account or using Celebso, you agree to these Terms & Conditions and our Privacy Policy. If you do not agree, please do not use our platform.
-                    </p>
-                </div>
+    <!-- Hero -->
+    <section class="lg-hero">
+        <div class="lg-hero-inner max-w-[1240px] mx-auto px-5 py-14 sm:px-8 sm:py-[72px] lg:px-10 lg:py-20 reveal">
+            <div class="lg-eyebrow"><i class="ph ph-file-text"></i> Terms &amp; Conditions</div>
+            <h1 class="lg-title">Terms &amp; Conditions.</h1>
+            <p class="lg-summary">Please read these Terms &amp; Conditions carefully before using Celebso. By accessing or using our platform, you agree to be bound by these terms.</p>
+            <div class="lg-pills">
+                <span class="lg-pill"><i class="ph ph-calendar-days"></i> Effective May 18, 2025</span>
+                <span class="lg-pill">Version 1.0</span>
+                <span class="lg-pill">Part of the Celebso Master Legal Document</span>
             </div>
-
-            <!-- Item 2 -->
-            <div class="flex gap-6 py-8 border-t border-dark-border hover:bg-dark-card/40 transition duration-300 reveal">
-                <div class="w-12 h-12 rounded-full bg-dark-card flex items-center justify-center flex-shrink-0">
-                    <span class="text-dark-red font-bold text-lg">2</span>
-                </div>
-                <div>
-                    <h3 class="text-lg font-bold text-white mb-2">Eligibility</h3>
-                    <p class="text-dark-textMuted leading-relaxed text-[15px]">
-                        You must be at least 13 years old to use Celebso. By using our platform, you represent and warrant that you meet this requirement.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Item 3 -->
-            <div class="flex gap-6 py-8 border-t border-dark-border hover:bg-dark-card/40 transition duration-300 reveal">
-                <div class="w-12 h-12 rounded-full bg-dark-card flex items-center justify-center flex-shrink-0">
-                    <span class="text-dark-red font-bold text-lg">3</span>
-                </div>
-                <div>
-                    <h3 class="text-lg font-bold text-white mb-2">Account Registration</h3>
-                    <p class="text-dark-textMuted leading-relaxed text-[15px]">
-                        You are responsible for maintaining the confidentiality of your account information and for all activities that occur under your account. You agree to provide accurate and complete information.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Item 4 -->
-            <div class="flex gap-6 py-8 border-t border-dark-border hover:bg-dark-card/40 transition duration-300 reveal">
-                <div class="w-12 h-12 rounded-full bg-dark-card flex items-center justify-center flex-shrink-0">
-                    <span class="text-dark-red font-bold text-lg">4</span>
-                </div>
-                <div>
-                    <h3 class="text-lg font-bold text-white mb-2">User Content</h3>
-                    <p class="text-dark-textMuted leading-relaxed text-[15px]">
-                        You retain ownership of the content you post on Celebso. By posting, you grant us a worldwide, non-exclusive, royalty-free license to use, reproduce, and display your content in connection with operating and promoting our platform.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Item 5 -->
-            <div class="flex gap-6 py-8 border-t border-dark-border hover:bg-dark-card/40 transition duration-300 reveal">
-                <div class="w-12 h-12 rounded-full bg-dark-card flex items-center justify-center flex-shrink-0">
-                    <span class="text-dark-red font-bold text-lg">5</span>
-                </div>
-                <div>
-                    <h3 class="text-lg font-bold text-white mb-2">Acceptable Use</h3>
-                    <p class="text-dark-textMuted leading-relaxed text-[15px]">
-                        You agree not to use Celebso for any unlawful purpose or in any way that may harm, disable, or impair the platform or interfere with any other user's experience.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Item 6 -->
-            <div class="flex gap-6 py-8 border-t border-dark-border hover:bg-dark-card/40 transition duration-300 reveal">
-                <div class="w-12 h-12 rounded-full bg-dark-card flex items-center justify-center flex-shrink-0">
-                    <span class="text-dark-red font-bold text-lg">6</span>
-                </div>
-                <div>
-                    <h3 class="text-lg font-bold text-white mb-2">Community Guidelines</h3>
-                    <p class="text-dark-textMuted leading-relaxed text-[15px]">
-                        You agree to follow our Community Guidelines. We reserve the right to remove content or suspend accounts that violate our policies or are reported by other users.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Item 7 -->
-            <div class="flex gap-6 py-8 border-t border-dark-border hover:bg-dark-card/40 transition duration-300 reveal">
-                <div class="w-12 h-12 rounded-full bg-dark-card flex items-center justify-center flex-shrink-0">
-                    <span class="text-dark-red font-bold text-lg">7</span>
-                </div>
-                <div>
-                    <h3 class="text-lg font-bold text-white mb-2">Termination</h3>
-                    <p class="text-dark-textMuted leading-relaxed text-[15px]">
-                        We may suspend or terminate your account at any time for violations of these Terms or for any other reason at our sole discretion.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Item 8 -->
-            <div class="flex gap-6 py-8 border-t border-dark-border hover:bg-dark-card/40 transition duration-300 reveal">
-                <div class="w-12 h-12 rounded-full bg-dark-card flex items-center justify-center flex-shrink-0">
-                    <span class="text-dark-red font-bold text-lg">8</span>
-                </div>
-                <div>
-                    <h3 class="text-lg font-bold text-white mb-2">Disclaimer of Warranties</h3>
-                    <p class="text-dark-textMuted leading-relaxed text-[15px]">
-                        Celebso is provided "as is" and "as available" without warranties of any kind. We do not guarantee that the platform will be error-free or uninterrupted.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Item 9 -->
-            <div class="flex gap-6 py-8 border-t border-dark-border hover:bg-dark-card/40 transition duration-300 reveal">
-                <div class="w-12 h-12 rounded-full bg-dark-card flex items-center justify-center flex-shrink-0">
-                    <span class="text-dark-red font-bold text-lg">9</span>
-                </div>
-                <div>
-                    <h3 class="text-lg font-bold text-white mb-2">Limitation of Liability</h3>
-                    <p class="text-dark-textMuted leading-relaxed text-[15px]">
-                        Celebso shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of or inability to use the platform.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Item 10 -->
-            <div class="flex gap-6 py-8 border-t border-dark-border hover:bg-dark-card/40 transition duration-300 reveal">
-                <div class="w-12 h-12 rounded-full bg-dark-card flex items-center justify-center flex-shrink-0">
-                    <span class="text-dark-red font-bold text-lg">10</span>
-                </div>
-                <div>
-                    <h3 class="text-lg font-bold text-white mb-2">Changes to Terms</h3>
-                    <p class="text-dark-textMuted leading-relaxed text-[15px]">
-                        We may update these Terms from time to time. We will notify users of any material changes. Continued use of Celebso after changes constitutes acceptance of the new Terms.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Item 11 -->
-            <div class="flex gap-6 py-8 border-t border-b border-dark-border hover:bg-dark-card/40 transition duration-300 reveal">
-                <div class="w-12 h-12 rounded-full bg-dark-card flex items-center justify-center flex-shrink-0">
-                    <span class="text-dark-red font-bold text-lg">11</span>
-                </div>
-                <div>
-                    <h3 class="text-lg font-bold text-white mb-2">Contact Us</h3>
-                    <p class="text-dark-textMuted leading-relaxed text-[15px]">
-                        If you have any questions about these Terms, please contact us at <a href="mailto:support@celebso.com" class="text-dark-red hover:underline">support@celebso.com</a>.
-                    </p>
-                </div>
-            </div>
-
         </div>
-    </main>
+    </section>
 
-    <!-- Footer -->
+    <!-- Content -->
+    <div class="lg-wrap">
+        <div class="lg-grid">
+
+            <!-- Sidebar -->
+            <aside class="lg-side reveal">
+                <details class="lg-toc-details lg-toc-mobile">
+                    <summary>In this document <i class="ph ph-book-open-text"></i></summary>
+                    <nav class="lg-toc" aria-label="Terms sections">
+                        <a href="#sec-1"><span class="num">1.</span>Acceptance of Terms</a>
+                        <a href="#sec-2"><span class="num">2.</span>Eligibility</a>
+                        <a href="#sec-3"><span class="num">3.</span>Account Registration</a>
+                        <a href="#sec-4"><span class="num">4.</span>User Content</a>
+                        <a href="#sec-5"><span class="num">5.</span>Acceptable Use</a>
+                        <a href="#sec-6"><span class="num">6.</span>Community Guidelines</a>
+                        <a href="#sec-7"><span class="num">7.</span>Termination</a>
+                        <a href="#sec-8"><span class="num">8.</span>Disclaimer of Warranties</a>
+                        <a href="#sec-9"><span class="num">9.</span>Limitation of Liability</a>
+                        <a href="#sec-10"><span class="num">10.</span>Changes to Terms</a>
+                        <a href="#sec-11"><span class="num">11.</span>Contact Us</a>
+                    </nav>
+                </details>
+
+                <div class="lg-toc-desktop">
+                    <p class="lg-toc-title">In this document</p>
+                    <nav class="lg-toc" aria-label="Terms sections desktop">
+                        <a href="#sec-1"><span class="num">1.</span>Acceptance of Terms</a>
+                        <a href="#sec-2"><span class="num">2.</span>Eligibility</a>
+                        <a href="#sec-3"><span class="num">3.</span>Account Registration</a>
+                        <a href="#sec-4"><span class="num">4.</span>User Content</a>
+                        <a href="#sec-5"><span class="num">5.</span>Acceptable Use</a>
+                        <a href="#sec-6"><span class="num">6.</span>Community Guidelines</a>
+                        <a href="#sec-7"><span class="num">7.</span>Termination</a>
+                        <a href="#sec-8"><span class="num">8.</span>Disclaimer of Warranties</a>
+                        <a href="#sec-9"><span class="num">9.</span>Limitation of Liability</a>
+                        <a href="#sec-10"><span class="num">10.</span>Changes to Terms</a>
+                        <a href="#sec-11"><span class="num">11.</span>Contact Us</a>
+                    </nav>
+                </div>
+            </aside>
+
+            <!-- Article -->
+            <article class="min-w-0 reveal">
+
+                <div class="lg-notice">
+                    This policy forms part of Celebso's Master Legal &amp; Policy Document and should be read together with our Privacy Policy and any applicable quotation, Statement of Work, invoice, or signed agreement.
+                </div>
+
+                <div class="mt-11 space-y-12">
+
+                    <!-- 1 -->
+                    <section id="sec-1" class="lg-section">
+                        <div class="lg-sec-head">
+                            <span class="lg-badge">1</span>
+                            <h2>Acceptance of Terms</h2>
+                        </div>
+                        <div class="lg-copy">
+                            <p>By creating an account or using Celebso, you agree to these Terms &amp; Conditions and our Privacy Policy. If you do not agree, please do not use our platform.</p>
+                        </div>
+                    </section>
+
+                    <!-- 2 -->
+                    <section id="sec-2" class="lg-section">
+                        <div class="lg-sec-head">
+                            <span class="lg-badge">2</span>
+                            <h2>Eligibility</h2>
+                        </div>
+                        <div class="lg-copy">
+                            <ul class="lg-list">
+                                <li><i class="ph-bold ph-check lg-check"></i><span>You must be at least 13 years old to use Celebso.</span></li>
+                                <li><i class="ph-bold ph-check lg-check"></i><span>By using our platform, you represent and warrant that you meet this requirement.</span></li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- 3 -->
+                    <section id="sec-3" class="lg-section">
+                        <div class="lg-sec-head">
+                            <span class="lg-badge">3</span>
+                            <h2>Account Registration</h2>
+                        </div>
+                        <div class="lg-copy">
+                            <p>You are responsible for your account, and agree to the following:</p>
+                            <ul class="lg-list">
+                                <li><i class="ph-bold ph-check lg-check"></i><span>Maintain the confidentiality of your account information.</span></li>
+                                <li><i class="ph-bold ph-check lg-check"></i><span>Accept responsibility for all activities that occur under your account.</span></li>
+                                <li><i class="ph-bold ph-check lg-check"></i><span>Provide accurate and complete information.</span></li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- 4 -->
+                    <section id="sec-4" class="lg-section">
+                        <div class="lg-sec-head">
+                            <span class="lg-badge">4</span>
+                            <h2>User Content</h2>
+                        </div>
+                        <div class="lg-copy">
+                            <p>You retain ownership of the content you post on Celebso. By posting, you grant us a worldwide, non-exclusive, royalty-free license to use, reproduce, and display your content in connection with operating and promoting our platform.</p>
+                        </div>
+                    </section>
+
+                    <!-- 5 -->
+                    <section id="sec-5" class="lg-section">
+                        <div class="lg-sec-head">
+                            <span class="lg-badge">5</span>
+                            <h2>Acceptable Use</h2>
+                        </div>
+                        <div class="lg-copy">
+                            <p>You agree not to use Celebso:</p>
+                            <ul class="lg-list">
+                                <li><i class="ph-bold ph-check lg-check"></i><span>for any unlawful purpose;</span></li>
+                                <li><i class="ph-bold ph-check lg-check"></i><span>in any way that may harm, disable, or impair the platform; or</span></li>
+                                <li><i class="ph-bold ph-check lg-check"></i><span>in any way that interferes with any other user's experience.</span></li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- 6 -->
+                    <section id="sec-6" class="lg-section">
+                        <div class="lg-sec-head">
+                            <span class="lg-badge">6</span>
+                            <h2>Community Guidelines</h2>
+                        </div>
+                        <div class="lg-copy">
+                            <p>You agree to follow our Community Guidelines. We reserve the right to remove content or suspend accounts that violate our policies or are reported by other users.</p>
+                        </div>
+                    </section>
+
+                    <!-- 7 -->
+                    <section id="sec-7" class="lg-section">
+                        <div class="lg-sec-head">
+                            <span class="lg-badge">7</span>
+                            <h2>Termination</h2>
+                        </div>
+                        <div class="lg-copy">
+                            <p>We may suspend or terminate your account at any time for violations of these Terms or for any other reason at our sole discretion.</p>
+                        </div>
+                    </section>
+
+                    <!-- 8 -->
+                    <section id="sec-8" class="lg-section">
+                        <div class="lg-sec-head">
+                            <span class="lg-badge">8</span>
+                            <h2>Disclaimer of Warranties</h2>
+                        </div>
+                        <div class="lg-copy">
+                            <p>Celebso is provided "as is" and "as available" without warranties of any kind. We do not guarantee that the platform will be error-free or uninterrupted.</p>
+                        </div>
+                    </section>
+
+                    <!-- 9 -->
+                    <section id="sec-9" class="lg-section">
+                        <div class="lg-sec-head">
+                            <span class="lg-badge">9</span>
+                            <h2>Limitation of Liability</h2>
+                        </div>
+                        <div class="lg-copy">
+                            <p>Celebso shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of or inability to use the platform.</p>
+                        </div>
+                    </section>
+
+                    <!-- 10 -->
+                    <section id="sec-10" class="lg-section">
+                        <div class="lg-sec-head">
+                            <span class="lg-badge">10</span>
+                            <h2>Changes to Terms</h2>
+                        </div>
+                        <div class="lg-copy">
+                            <p>We may update these Terms from time to time. We will notify users of any material changes. Continued use of Celebso after changes constitutes acceptance of the new Terms.</p>
+                        </div>
+                    </section>
+
+                    <!-- 11 -->
+                    <section id="sec-11" class="lg-section">
+                        <div class="lg-sec-head">
+                            <span class="lg-badge">11</span>
+                            <h2>Contact Us</h2>
+                        </div>
+                        <div class="lg-copy">
+                            <p>If you have any questions about these Terms, please contact us at <a href="mailto:support@celebso.com" class="text-[#ffca05] hover:underline">support@celebso.com</a>.</p>
+                        </div>
+                    </section>
+
+                </div>
+
+                <!-- CTA -->
+                <div class="lg-cta">
+                    <div>
+                        <i class="ph ph-envelope-simple mail-icon"></i>
+                        <h2>Questions about this document?</h2>
+                        <p>Mention "Terms &amp; Conditions" in your subject line so your query reaches the right team.</p>
+                    </div>
+                    <a href="mailto:support@celebso.com" class="btn">support@celebso.com <i class="ph ph-arrow-up-right"></i></a>
+                </div>
+
+            </article>
+        </div>
+    </div>
+
+    <!-- Other legal documents -->
+    <section class="lg-other">
+        <div class="max-w-[1240px] mx-auto px-5 py-12 sm:px-8 lg:px-10 reveal">
+            <div class="lg-other-head">
+                <h2>Other important links</h2>
+                <a href="help-center.html">View all</a>
+            </div>
+            <div class="lg-docs">
+                <a href="help-center.html" class="lg-doc-card">Help Center <i class="ph ph-arrow-up-right"></i></a>
+                <a href="submit-request.html" class="lg-doc-card">Submit a Request <i class="ph ph-arrow-up-right"></i></a>
+                <a href="founding-member.html" class="lg-doc-card">Founding Member Program <i class="ph ph-arrow-up-right"></i></a>
+                <a href="contact.html" class="lg-doc-card">Contact Us <i class="ph ph-arrow-up-right"></i></a>
+                <a href="about.html" class="lg-doc-card">About Celebso <i class="ph ph-arrow-up-right"></i></a>
+            </div>
+        </div>
+    </section>
+
     <!-- ================= FOOTER ================= -->
 
 <footer id="contact">

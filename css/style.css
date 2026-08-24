@@ -2083,10 +2083,17 @@ footer{
         flex-wrap:wrap;
         padding:8px 0;
         gap:8px;
+        position:relative;
+        justify-content:flex-end;
     }
 
+    /* Centered logo on mobile */
     .logo{
         font-size:18px;
+        position:absolute;
+        left:50%;
+        top:50%;
+        transform:translate(-50%,-50%);
     }
 
     .logo .main-icon{
