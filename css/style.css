@@ -1080,6 +1080,13 @@ footer[id]{
     width:100%;
     display:block;
     object-fit:cover;
+    aspect-ratio:16 / 9;
+    border-radius:18px;
+    box-shadow:0 14px 40px rgba(0,0,0,.35);
+}
+
+html.light-mode .steps-image{
+    box-shadow:0 14px 40px rgba(15,20,40,.15);
 }
 
 .step{
@@ -1499,7 +1506,8 @@ footer{
 }
 
 .footer-logo .main-icon{
-    width:250px;
+    width:clamp(140px, 45vw, 250px);
+    max-width:80%;
     height:auto;
     border-radius:14px;
     background:transparent;
@@ -2197,8 +2205,14 @@ footer{
     }
 
     .steps{
-        padding:10px;
+        padding:0;
         gap:0;
+        margin-bottom:45px;
+    }
+
+    .steps-image{
+        aspect-ratio:4 / 3;
+        border-radius:14px;
     }
 
     .arrow{
@@ -2490,10 +2504,6 @@ footer{
     .learn{
         padding:12px 22px;
         font-size:13px;
-    }
-
-    .footer-logo .main-icon{
-        width:130px;
     }
 
     .live-info h2{
