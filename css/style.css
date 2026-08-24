@@ -1079,8 +1079,7 @@ footer[id]{
 .steps-image{
     width:100%;
     display:block;
-    object-fit:cover;
-    aspect-ratio:16 / 9;
+    height:auto;
     border-radius:18px;
     box-shadow:0 14px 40px rgba(0,0,0,.35);
 }
@@ -2211,7 +2210,6 @@ footer{
     }
 
     .steps-image{
-        aspect-ratio:4 / 3;
         border-radius:14px;
     }
 
@@ -2277,7 +2275,8 @@ footer{
     .footer-hero img{
         max-height:none;
         height:auto;
-        aspect-ratio:16/6;
+        aspect-ratio:auto;
+        object-fit:contain;
     }
 
     .footer-text{
@@ -2579,8 +2578,13 @@ footer{
     }
 
     .banner{
-        aspect-ratio:4/3;
+        aspect-ratio:auto;
         margin-bottom:30px;
+    }
+
+    .banner img{
+        height:auto;
+        object-fit:contain;
     }
 
     .live{

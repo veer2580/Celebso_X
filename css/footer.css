@@ -164,7 +164,8 @@ footer{
     .footer-hero img{
         max-height:none;
         height:auto;
-        aspect-ratio:16/6;
+        aspect-ratio:auto;
+        object-fit:contain;
     }
 
     .footer-text{
