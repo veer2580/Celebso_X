@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Celebso - About Us</title>
     <script>try{if(localStorage.getItem("celebso-theme")==="light")document.documentElement.classList.add("light-mode");}catch(e){}</script>
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48.png">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Inter -->
@@ -84,6 +87,21 @@
         .reveal{opacity:0;}
         .reveal.visible{animation:revealIn .6s ease both;}
         @keyframes revealIn{from{opacity:0;transform:translateY(26px);}to{opacity:1;transform:translateY(0);}}
+
+        /* Mobile: show full story image (no crop, no letterbox) in dark & light mode */
+        @media(max-width:850px){
+            .story-frame{
+                height:auto !important;
+                aspect-ratio:1662 / 946;
+            }
+            .story-frame .story-img-dark,
+            .story-frame .story-img-light{
+                object-fit:cover !important;
+                width:100%;
+                height:100%;
+            }
+        }
+
         
         .grid .reveal:nth-child(1).visible{animation-delay:.05s}
         .grid .reveal:nth-child(2).visible{animation-delay:.12s}
@@ -156,7 +174,7 @@
                 </p>
             </div>
             <div class="lg:w-1/2 flex justify-center">
-                <div class="relative w-full max-w-md h-80 bg-[#111] rounded-2xl flex items-center justify-center border border-dark-border overflow-hidden shadow-[0_0_30px_rgba(255,202,5,0.1)]">
+                <div class="story-frame relative w-full max-w-md h-80 bg-[#111] rounded-2xl flex items-center justify-center border border-dark-border overflow-hidden shadow-[0_0_30px_rgba(255,202,5,0.1)]">
                     <img src="images/ChatGPT%20Image%20Aug%2020%2C%202026%2C%2012_30_31%20PM.png" alt="3D Logo Illustration" class="story-img-dark object-cover w-full h-full">
                     <img src="images/ChatGPT%20Image%20Aug%2020,%202026,%2012_19_15%20PM.png" alt="3D Logo Illustration" class="story-img-light object-cover w-full h-full">
                 </div>
@@ -166,29 +184,29 @@
 
     <!-- Stats Section -->
     <section class="max-w-7xl mx-auto px-6 py-10 relative z-10 reveal">
-        <div class="glass-card rounded-3xl p-8 flex justify-between items-center text-center reveal">
-            <div class="w-1/4">
+        <div class="glass-card rounded-3xl p-8 grid grid-cols-2 gap-y-10 gap-x-4 md:flex md:justify-between md:items-center text-center reveal">
+            <div class="md:w-1/4">
                 <i class="ph ph-users text-3xl text-dark-red mb-2 mx-auto block"></i>
                 <h3 class="text-3xl font-bold text-white mb-1">2M+</h3>
                 <p class="text-gray-400 text-sm">Active Creators</p>
             </div>
-            <div class="w-px h-14 bg-dark-border"></div>
+            <div class="hidden md:block w-px h-14 bg-dark-border"></div>
 
-            <div class="w-1/4">
+            <div class="md:w-1/4">
                 <i class="ph ph-globe text-3xl text-dark-red mb-2 mx-auto block"></i>
                 <h3 class="text-3xl font-bold text-white mb-1">150+</h3>
                 <p class="text-gray-400 text-sm">Countries</p>
             </div>
-            <div class="w-px h-14 bg-dark-border"></div>
+            <div class="hidden md:block w-px h-14 bg-dark-border"></div>
 
-            <div class="w-1/4">
+            <div class="md:w-1/4">
                 <i class="ph ph-play-circle text-3xl text-dark-red mb-2 mx-auto block"></i>
                 <h3 class="text-3xl font-bold text-white mb-1">50M+</h3>
                 <p class="text-gray-400 text-sm">Stories Shared</p>
             </div>
-            <div class="w-px h-14 bg-dark-border"></div>
+            <div class="hidden md:block w-px h-14 bg-dark-border"></div>
 
-            <div class="w-1/4">
+            <div class="md:w-1/4">
                 <i class="ph ph-lightning text-3xl text-dark-red mb-2 mx-auto block"></i>
                 <h3 class="text-3xl font-bold text-white mb-1">24/7</h3>
                 <p class="text-gray-400 text-sm">Support</p>
@@ -329,7 +347,7 @@
                 </div>
             </div>
             <a href="#" class="bg-dark-red text-white text-sm font-semibold px-6 py-3 rounded-lg hover:bg-[#d99e00] transition flex items-center gap-2 whitespace-nowrap">
-                Create Your Account <i class="ph ph-arrow-right"></i>
+                ↓ &nbsp; Install Now
             </a>
         </div>
     </section>
@@ -355,7 +373,7 @@
 
         <div class="footer-menu">
 
-            <a href="#contact">Contact Us</a>
+            <a href="contact.html">Contact Us</a>
             <a href="terms.html">Terms</a>
             <a href="help-center.html">Help Center</a>
 

@@ -104,7 +104,8 @@ html.light-mode .nav-toggle span{
 
 html.light-mode .mobile-menu{
     background:rgba(255,255,255,.98);
-    border-bottom-color:rgba(0,0,0,.08);
+    border-color:rgba(0,0,0,.10);
+    box-shadow:0 24px 60px rgba(15,20,40,.18);
 }
 
 html.light-mode .mobile-menu a{
@@ -128,7 +129,11 @@ html.light-mode #home.hero::after{
 }
 
 html.light-mode .hero-text{
-    color:#55565f;
+    color:#141414;
+}
+
+html.light-mode .hero-heading{
+    text-shadow:none;
 }
 
 html.light-mode .hero-heading span{

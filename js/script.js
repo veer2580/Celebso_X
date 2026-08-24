@@ -41,20 +41,49 @@
     function initMobileMenu() {
         var toggle = document.querySelector(".nav-toggle");
         var menu = document.querySelector(".mobile-menu");
+        var navbar = document.querySelector(".navbar");
         if (!toggle || !menu) return;
 
-        toggle.addEventListener("click", function () {
+        function positionMenu() {
+            if (navbar && navbar.getBoundingClientRect) {
+                menu.style.top = (navbar.getBoundingClientRect().bottom + 8) + "px";
+            }
+        }
+
+        function closeMenu() {
+            menu.classList.remove("open");
+            toggle.classList.remove("active");
+        }
+
+        toggle.addEventListener("click", function (e) {
+            e.stopPropagation();
             var isOpen = menu.classList.toggle("open");
             toggle.classList.toggle("active", isOpen);
+            if (isOpen) positionMenu();
         });
 
         var links = menu.querySelectorAll("a");
         links.forEach(function (link) {
-            link.addEventListener("click", function () {
-                menu.classList.remove("open");
-                toggle.classList.remove("active");
-            });
+            link.addEventListener("click", closeMenu);
         });
+
+        /* Close when clicking outside the floating menu */
+        document.addEventListener("click", function (e) {
+            if (menu.classList.contains("open") && !menu.contains(e.target) && !toggle.contains(e.target)) {
+                closeMenu();
+            }
+        });
+
+        /* Close on Escape key */
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape" && menu.classList.contains("open")) closeMenu();
+        });
+
+        /* Keep aligned under the button on resize/scroll */
+        window.addEventListener("resize", positionMenu);
+        window.addEventListener("scroll", function () {
+            if (menu.classList.contains("open")) positionMenu();
+        }, { passive: true });
     }
 
     function initViewAll() {

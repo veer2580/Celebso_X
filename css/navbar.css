@@ -166,16 +166,22 @@
 
 .mobile-menu{
     display:none;
+    position:fixed;
+    top:76px;
+    right:14px;
+    width:min(300px, calc(100vw - 28px));
     flex-direction:column;
     gap:6px;
     padding:12px 16px 16px;
     background:rgba(10,11,24,.98);
-    border-bottom:1px solid rgba(255,255,255,.1);
-    max-height:calc(100vh - 64px);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:18px;
+    box-shadow:0 24px 60px rgba(0,0,0,.55);
+    max-height:calc(100vh - 96px);
     overflow-y:auto;
     -webkit-overflow-scrolling:touch;
     z-index:99;
-    animation:menuDrop .3s ease;
+    animation:menuDrop .25s ease;
 }
 
 @keyframes menuDrop{

@@ -239,12 +239,18 @@ footer[id]{
 
 .mobile-menu{
     display:none;
+    position:fixed;
+    top:76px;
+    right:14px;
+    width:min(300px, calc(100vw - 28px));
     flex-direction:column;
     gap:6px;
     padding:12px 16px 16px;
     background:rgba(10,11,24,.98);
-    border-bottom:1px solid rgba(255,255,255,.1);
-    max-height:calc(100vh - 64px);
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:18px;
+    box-shadow:0 24px 60px rgba(0,0,0,.55);
+    max-height:calc(100vh - 96px);
     overflow-y:auto;
     -webkit-overflow-scrolling:touch;
     z-index:99;
@@ -381,9 +387,11 @@ footer[id]{
 
 .hero-heading{
     font-size:35px;
-    font-weight:700;
+    font-weight:800;
     line-height:1.25;
     margin-bottom:18px;
+    letter-spacing:.3px;
+    text-shadow:0 2px 22px rgba(0,0,0,.45);
 }
 
 .hero-heading span{
@@ -397,7 +405,7 @@ footer[id]{
 
 .hero-text{
     width:520px;
-    color:#c9c9d1;
+    color:#ffffff;
     font-size:17px;
     font-weight:600;
     line-height:1.6;
@@ -2139,6 +2147,11 @@ footer{
     .hero-title{
         font-size:44px;
         margin-bottom:12px;
+    }
+
+    .hero-logo{
+        margin-left:auto;
+        margin-right:auto;
     }
 
     .hero-heading{

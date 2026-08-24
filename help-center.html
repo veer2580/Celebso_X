@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Celebso - Help Center</title>
     <script>try{if(localStorage.getItem("celebso-theme")==="light")document.documentElement.classList.add("light-mode");}catch(e){}</script>
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48.png">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -89,7 +92,7 @@
                 <a href="blog.html">Blog</a>
             </nav>
             <div class="nav-auth">
-                <button class="install" type="button">↓ &nbsp; Install Now</button>
+                <button class="install" type="button">&darr; &nbsp; Install Now</button>
             </div>
             <button class="theme-toggle" type="button" aria-label="Toggle light mode">
                 <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
@@ -106,7 +109,7 @@
         <a href="news.html">News</a>
         <a href="blog.html">Blog</a>
         <div class="mobile-auth">
-            <button class="install" type="button">↓ &nbsp; Install Now</button>
+            <button class="install" type="button">&darr; &nbsp; Install Now</button>
         </div>
     </nav>
 
@@ -120,8 +123,8 @@
             <!-- Search Bar -->
             <div class="flex items-center w-full bg-dark-bg border border-dark-border rounded-full p-2 pl-6 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.1)] focus-within:ring-2 focus-within:ring-dark-border transition-all">
                 <i class="ph ph-magnifying-glass text-dark-textMuted text-2xl mr-3"></i>
-                <input type="text" placeholder="Search for articles, topics or questions..." class="flex-1 outline-none text-base text-dark-text bg-transparent placeholder-dark-textMuted">
-                <button class="bg-dark-red text-white text-sm font-semibold px-8 py-3 rounded-full hover:bg-[#d99e00] transition">Search</button>
+                <input type="text" placeholder="Search for articles, topics or questions..." class="flex-1 min-w-0 outline-none text-sm text-dark-text bg-transparent placeholder-dark-textMuted">
+                <button class="bg-dark-red text-white text-sm font-semibold px-6 py-2.5 rounded-full hover:bg-[#d99e00] transition whitespace-nowrap">Search</button>
             </div>
         </div>
 
@@ -131,7 +134,7 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Card 1 -->
-                <a href="#" class="group glass-card rounded-2xl p-8 hover:shadow-lg transition duration-300 flex flex-col justify-between min-h-[260px] reveal">
+                <a href="submit-request.html?cat=Getting%20Started" class="group glass-card rounded-2xl p-8 hover:shadow-lg transition duration-300 flex flex-col justify-between min-h-[260px] reveal">
                     <div>
                         <div class="w-14 h-14 rounded-full bg-dark-bg flex items-center justify-center mb-6">
                             <i class="ph ph-rocket-launch text-3xl text-gray-400"></i>
@@ -143,31 +146,31 @@
                 </a>
 
                 <!-- Card 2 -->
-                <a href="#" class="group glass-card rounded-2xl p-8 hover:shadow-lg transition duration-300 flex flex-col justify-between min-h-[260px] reveal">
+                <a href="submit-request.html?cat=Create%20%26%20Share" class="group glass-card rounded-2xl p-8 hover:shadow-lg transition duration-300 flex flex-col justify-between min-h-[260px] reveal">
                     <div>
                         <div class="w-14 h-14 rounded-full bg-dark-bg flex items-center justify-center mb-6">
                             <i class="ph ph-user text-3xl text-gray-400"></i>
                         </div>
-                        <h3 class="text-lg font-bold mb-3">Create & Share</h3>
+                        <h3 class="text-lg font-bold mb-3">Create &amp; Share</h3>
                         <p class="text-dark-textMuted text-sm leading-relaxed">Learn how to create,<br>post and go live.</p>
                     </div>
                     <i class="ph ph-arrow-right text-xl text-gray-400 mt-6 group-hover:translate-x-1 transition-transform"></i>
                 </a>
 
                 <!-- Card 3 -->
-                <a href="#" class="group glass-card rounded-2xl p-8 hover:shadow-lg transition duration-300 flex flex-col justify-between min-h-[260px] reveal">
+                <a href="submit-request.html?cat=Profile%20%26%20Portfolio" class="group glass-card rounded-2xl p-8 hover:shadow-lg transition duration-300 flex flex-col justify-between min-h-[260px] reveal">
                     <div>
                         <div class="w-14 h-14 rounded-full bg-dark-bg flex items-center justify-center mb-6">
                             <i class="ph ph-users text-3xl text-gray-400"></i>
                         </div>
-                        <h3 class="text-lg font-bold mb-3">Profile & Portfolio</h3>
+                        <h3 class="text-lg font-bold mb-3">Profile &amp; Portfolio</h3>
                         <p class="text-dark-textMuted text-sm leading-relaxed">Build and manage<br>your live portfolio.</p>
                     </div>
                     <i class="ph ph-arrow-right text-xl text-gray-400 mt-6 group-hover:translate-x-1 transition-transform"></i>
                 </a>
 
                 <!-- Card 4 -->
-                <a href="#" class="group glass-card rounded-2xl p-8 hover:shadow-lg transition duration-300 flex flex-col justify-between min-h-[260px] reveal">
+                <a href="submit-request.html?cat=Community" class="group glass-card rounded-2xl p-8 hover:shadow-lg transition duration-300 flex flex-col justify-between min-h-[260px] reveal">
                     <div>
                         <div class="w-14 h-14 rounded-full bg-dark-bg flex items-center justify-center mb-6">
                             <i class="ph ph-users-three text-3xl text-gray-400"></i>
@@ -179,7 +182,7 @@
                 </a>
 
                 <!-- Card 5 -->
-                <a href="#" class="group glass-card rounded-2xl p-8 hover:shadow-lg transition duration-300 flex flex-col justify-between min-h-[260px] reveal">
+                <a href="submit-request.html?cat=Account%20%26%20Safety" class="group glass-card rounded-2xl p-8 hover:shadow-lg transition duration-300 flex flex-col justify-between min-h-[260px] reveal">
                     <div>
                         <div class="w-14 h-14 rounded-full bg-dark-bg flex items-center justify-center mb-6 relative">
                             <i class="ph ph-shield text-3xl text-gray-400"></i>
@@ -187,14 +190,14 @@
                                 <i class="ph-fill ph-check text-[#ffca05] text-sm"></i>
                             </div>
                         </div>
-                        <h3 class="text-lg font-bold mb-3">Account & Safety</h3>
+                        <h3 class="text-lg font-bold mb-3">Account &amp; Safety</h3>
                         <p class="text-dark-textMuted text-sm leading-relaxed">Privacy, security and<br>account settings.</p>
                     </div>
                     <i class="ph ph-arrow-right text-xl text-gray-400 mt-6 group-hover:translate-x-1 transition-transform"></i>
                 </a>
 
                 <!-- Card 6 -->
-                <a href="#" class="group glass-card rounded-2xl p-8 hover:shadow-lg transition duration-300 flex flex-col justify-between min-h-[260px] reveal">
+                <a href="submit-request.html?cat=Troubleshooting" class="group glass-card rounded-2xl p-8 hover:shadow-lg transition duration-300 flex flex-col justify-between min-h-[260px] reveal">
                     <div>
                         <div class="w-14 h-14 rounded-full bg-dark-bg flex items-center justify-center mb-6">
                             <i class="ph ph-gear text-3xl text-gray-400"></i>
@@ -232,7 +235,7 @@
             <div>
                 <h2 class="text-3xl font-extrabold mb-3 tracking-tight">Still need help?</h2>
                 <p class="text-dark-textMuted mb-6 text-[15px]">Can't find what you're looking for?</p>
-                <a href="#" class="inline-flex items-center gap-2 bg-dark-red text-white text-sm font-semibold px-6 py-3 rounded-lg hover:bg-[#d99e00] transition">
+                <a href="submit-request.html" class="inline-flex items-center gap-2 bg-dark-red text-white text-sm font-semibold px-6 py-3 rounded-lg hover:bg-[#d99e00] transition">
                     Contact Celebso Support <i class="ph ph-arrow-right font-bold"></i>
                 </a>
             </div>
@@ -260,7 +263,7 @@
 
         <div class="footer-menu">
 
-            <a href="#contact">Contact Us</a>
+            <a href="contact.html">Contact Us</a>
             <a href="terms.html">Terms</a>
             <a href="help-center.html">Help Center</a>
 
@@ -277,7 +280,7 @@
         </div>
 
         <div class="copy">
-        © 2026 ANTELLAY Tech. All Rights Reserved. A Celebso Group Company.
+        &copy; 2026 ANTELLAY Tech. All Rights Reserved. A Celebso Group Company.
         </div>
 
     </div>

@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Celebso - News</title>
     <script>try{if(localStorage.getItem("celebso-theme")==="light")document.documentElement.classList.add("light-mode");}catch(e){}</script>
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48.png">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -111,7 +114,7 @@
     </nav>
 
     <!-- Main Content -->
-    <main relative class="max-w-7xl mx-auto px-6 pb-16">
+    <main class="relative max-w-7xl mx-auto px-6 pb-16">
         
         <!-- Hero Section --><div class="hero-glow"></div>
         <div class="text-center pt-12 pb-10 max-w-3xl mx-auto reveal">
@@ -124,24 +127,24 @@
             <!-- Search Bar -->
             <div class="flex items-center w-full max-w-2xl mx-auto bg-dark-card border border-dark-border rounded-full p-2 pl-6 shadow-sm focus-within:ring-2 focus-within:ring-dark-border transition-all">
                 <i class="ph ph-magnifying-glass text-dark-textMuted text-xl mr-3"></i>
-                <input type="text" placeholder="Search news, topics or keywords..." class="flex-1 outline-none text-sm text-dark-text bg-transparent placeholder-dark-textMuted">
-                <button class="bg-dark-red text-white text-sm font-semibold px-6 py-2.5 rounded-full hover:bg-[#d99e00] transition">Search</button>
+                <input type="text" id="newsSearch" placeholder="Search news, topics or keywords..." class="flex-1 min-w-0 outline-none text-sm text-dark-text bg-transparent placeholder-dark-textMuted">
+                <button id="newsSearchBtn" type="button" class="bg-dark-red text-white text-sm font-semibold px-6 py-2.5 rounded-full hover:bg-[#d99e00] transition whitespace-nowrap">Search</button>
             </div>
         </div>
 
         <!-- Filter Tags -->
-        <div class="flex flex-wrap justify-center gap-3 mb-12 reveal">
-            <a href="#" class="bg-dark-red text-white text-sm font-medium px-5 py-2 rounded-full">All News</a>
-            <a href="#" class="bg-dark-card border border-dark-border text-dark-text text-sm font-medium px-5 py-2 rounded-full hover:bg-[#111] transition">Product Updates</a>
-            <a href="#" class="bg-dark-card border border-dark-border text-dark-text text-sm font-medium px-5 py-2 rounded-full hover:bg-[#111] transition">Features</a>
-            <a href="#" class="bg-dark-card border border-dark-border text-dark-text text-sm font-medium px-5 py-2 rounded-full hover:bg-[#111] transition">Community</a>
-            <a href="#" class="bg-dark-card border border-dark-border text-dark-text text-sm font-medium px-5 py-2 rounded-full hover:bg-[#111] transition">Partnerships</a>
-            <a href="#" class="bg-dark-card border border-dark-border text-dark-text text-sm font-medium px-5 py-2 rounded-full hover:bg-[#111] transition">Events</a>
-            <a href="#" class="bg-dark-card border border-dark-border text-dark-text text-sm font-medium px-5 py-2 rounded-full hover:bg-[#111] transition">Company</a>
+        <div id="newsFilters" class="flex flex-wrap justify-center gap-3 mb-12 reveal">
+            <a href="#" data-filter="all" class="bg-dark-red text-white text-sm font-medium px-5 py-2 rounded-full">All News</a>
+            <a href="#" data-filter="product-updates" class="bg-dark-card border border-dark-border text-dark-text text-sm font-medium px-5 py-2 rounded-full hover:bg-[#111] transition">Product Updates</a>
+            <a href="#" data-filter="features" class="bg-dark-card border border-dark-border text-dark-text text-sm font-medium px-5 py-2 rounded-full hover:bg-[#111] transition">Features</a>
+            <a href="#" data-filter="community" class="bg-dark-card border border-dark-border text-dark-text text-sm font-medium px-5 py-2 rounded-full hover:bg-[#111] transition">Community</a>
+            <a href="#" data-filter="partnerships" class="bg-dark-card border border-dark-border text-dark-text text-sm font-medium px-5 py-2 rounded-full hover:bg-[#111] transition">Partnerships</a>
+            <a href="#" data-filter="events" class="bg-dark-card border border-dark-border text-dark-text text-sm font-medium px-5 py-2 rounded-full hover:bg-[#111] transition">Events</a>
+            <a href="#" data-filter="company" class="bg-dark-card border border-dark-border text-dark-text text-sm font-medium px-5 py-2 rounded-full hover:bg-[#111] transition">Company</a>
         </div>
 
         <!-- Featured Article -->
-        <div class="glass-card rounded-[32px] overflow-hidden mb-16 shadow-sm hover:shadow-md transition-shadow reveal flex flex-col lg:flex-row">
+        <div class="news-card glass-card rounded-[32px] overflow-hidden mb-16 shadow-sm hover:shadow-md transition-shadow reveal flex flex-col lg:flex-row" data-category="product-updates">
             <!-- Image Area -->
             <div class="lg:w-1/2 relative bg-gray-900 min-h-[300px]">
                 <img src="images/ChatGPT%20Image%20Aug%2020%2C%202026%2C%2001_36_54%20PM.png" alt="Featured App Update" class="featured-img-dark w-full h-full object-cover">
@@ -186,7 +189,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             
             <!-- Card 1 -->
-            <div class="glass-card rounded-2xl overflow-hidden flex flex-col hover:shadow-lg transition-shadow reveal">
+            <div class="glass-card rounded-2xl overflow-hidden flex flex-col hover:shadow-lg transition-shadow reveal news-card" data-category="features">
                 <div class="h-48 bg-[#2e1f4d] w-full overflow-hidden">
                     <img src="images/ChatGPT%20Image%20Aug%2020%2C%202026%2C%2001_32_10%20PM.png" alt="Composer" class="w-full h-full object-cover">
                 </div>
@@ -202,7 +205,7 @@
             </div>
 
             <!-- Card 2 -->
-            <div class="glass-card rounded-2xl overflow-hidden flex flex-col hover:shadow-lg transition-shadow reveal">
+            <div class="glass-card rounded-2xl overflow-hidden flex flex-col hover:shadow-lg transition-shadow reveal news-card" data-category="community">
                 <div class="h-48 bg-[#0f172a] w-full overflow-hidden">
                     <img src="images/ChatGPT%20Image%20Aug%2020%2C%202026%2C%2001_33_13%20PM.png" alt="Community" class="w-full h-full object-cover">
                 </div>
@@ -218,7 +221,7 @@
             </div>
 
             <!-- Card 3 -->
-            <div class="glass-card rounded-2xl overflow-hidden flex flex-col hover:shadow-lg transition-shadow reveal">
+            <div class="glass-card rounded-2xl overflow-hidden flex flex-col hover:shadow-lg transition-shadow reveal news-card" data-category="product-updates">
                 <div class="h-48 bg-[#0a0a0a] w-full overflow-hidden">
                     <img src="images/ChatGPT%20Image%20Aug%2020%2C%202026%2C%2001_34_18%20PM.png" alt="Analytics" class="w-full h-full object-cover">
                 </div>
@@ -234,7 +237,7 @@
             </div>
 
             <!-- Card 4 -->
-            <div class="glass-card rounded-2xl overflow-hidden flex flex-col hover:shadow-lg transition-shadow reveal">
+            <div class="glass-card rounded-2xl overflow-hidden flex flex-col hover:shadow-lg transition-shadow reveal news-card" data-category="company">
                 <div class="h-48 bg-[#311019] w-full overflow-hidden">
                     <img src="images/ChatGPT%20Image%20Aug%2020%2C%202026%2C%2001_35_18%20PM.png" alt="Premium" class="w-full h-full object-cover">
                 </div>
@@ -249,6 +252,13 @@
                 </div>
             </div>
 
+        </div>
+
+        <!-- No Results -->
+        <div id="newsEmpty" class="hidden text-center py-16">
+            <i class="ph ph-newspaper text-5xl text-dark-textMuted mb-4 block"></i>
+            <h3 class="text-xl font-bold mb-2">No news found</h3>
+            <p class="text-dark-textMuted">Try different keywords or select another category.</p>
         </div>
 
         <!-- Newsletter Section -->
@@ -275,10 +285,11 @@
             </div>
 
             <div class="w-full md:w-auto flex-1 max-w-md">
-                <div class="flex items-center bg-dark-card border border-dark-border rounded-lg p-1.5 shadow-sm">
-                    <input type="email" placeholder="Enter your email" class="flex-1 outline-none text-sm text-dark-text bg-transparent px-4 placeholder-dark-textMuted">
-                    <button class="bg-dark-red text-white text-sm font-semibold px-6 py-2.5 rounded-md hover:bg-[#d99e00] transition whitespace-nowrap">Subscribe</button>
-                </div>
+                <form id="newsletterForm" class="flex items-center bg-dark-card border border-dark-border rounded-lg p-1.5 shadow-sm" novalidate>
+                    <input type="email" id="newsletterEmail" placeholder="Enter your email" class="flex-1 min-w-0 outline-none text-sm text-dark-text bg-transparent px-4 placeholder-dark-textMuted">
+                    <button id="newsletterBtn" type="submit" class="bg-dark-red text-white text-sm font-semibold px-6 py-2.5 rounded-md hover:bg-[#d99e00] transition whitespace-nowrap">Subscribe</button>
+                </form>
+                <p id="newsletterStatus" class="hidden text-xs mt-2 ml-2"></p>
             </div>
         </div>
     </main>
@@ -304,7 +315,7 @@
 
         <div class="footer-menu">
 
-            <a href="#contact">Contact Us</a>
+            <a href="contact.html">Contact Us</a>
             <a href="terms.html">Terms</a>
             <a href="help-center.html">Help Center</a>
 
@@ -331,5 +342,96 @@
 </footer>
 
     <script src="js/script.js"></script>
+    <script>
+    (function () {
+        "use strict";
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            var searchInput = document.getElementById("newsSearch");
+            var searchBtn = document.getElementById("newsSearchBtn");
+            var filtersBox = document.getElementById("newsFilters");
+            var empty = document.getElementById("newsEmpty");
+            var cards = document.querySelectorAll(".news-card");
+            var chips = filtersBox ? filtersBox.querySelectorAll("a") : [];
+            var activeFilter = "all";
+
+            var ON_CLASSES = ["bg-dark-red", "text-white"];
+            var OFF_CLASSES = ["bg-dark-card", "border", "border-dark-border", "text-dark-text"];
+
+            function applyFilters() {
+                var q = searchInput ? searchInput.value.trim().toLowerCase() : "";
+                var visible = 0;
+
+                cards.forEach(function (card) {
+                    var okCat = activeFilter === "all" || card.getAttribute("data-category") === activeFilter;
+                    var okText = !q || card.textContent.toLowerCase().indexOf(q) !== -1;
+                    var show = okCat && okText;
+                    card.style.display = show ? "" : "none";
+                    if (show) visible++;
+                });
+
+                if (empty) empty.classList.toggle("hidden", visible > 0);
+            }
+
+            function setActiveChip(chip) {
+                chips.forEach(function (c) {
+                    if (c === chip) {
+                        OFF_CLASSES.forEach(function (cls) { c.classList.remove(cls); });
+                        ON_CLASSES.forEach(function (cls) { c.classList.add(cls); });
+                    } else {
+                        ON_CLASSES.forEach(function (cls) { c.classList.remove(cls); });
+                        OFF_CLASSES.forEach(function (cls) { c.classList.add(cls); });
+                    }
+                });
+            }
+
+            chips.forEach(function (chip) {
+                chip.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    activeFilter = chip.getAttribute("data-filter") || "all";
+                    setActiveChip(chip);
+                    applyFilters();
+                });
+            });
+
+            if (searchInput) {
+                searchInput.addEventListener("input", applyFilters);
+                searchInput.addEventListener("keydown", function (e) {
+                    if (e.key === "Enter") {
+                        e.preventDefault();
+                        applyFilters();
+                    }
+                });
+            }
+
+            if (searchBtn) searchBtn.addEventListener("click", applyFilters);
+
+            /* ---------- NEWSLETTER SUBSCRIBE ---------- */
+            var nlForm = document.getElementById("newsletterForm");
+            var nlEmail = document.getElementById("newsletterEmail");
+            var nlStatus = document.getElementById("newsletterStatus");
+
+            if (nlForm && nlEmail && nlStatus) {
+                nlForm.addEventListener("submit", function (e) {
+                    e.preventDefault();
+                    var v = nlEmail.value.trim();
+                    var ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+
+                    if (!ok) {
+                        nlStatus.textContent = "Please enter a valid email address.";
+                        nlStatus.className = "text-xs mt-2 ml-2 text-red-400";
+                        return;
+                    }
+
+                    nlStatus.textContent = "Thanks for subscribing! Latest updates will land in your inbox.";
+                    nlStatus.className = "text-xs mt-2 ml-2 text-green-400";
+                    nlEmail.value = "";
+                });
+            }
+
+        });
+    })();
+    </script>
 </body>
 </html>

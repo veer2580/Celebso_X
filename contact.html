@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celebso - Contact Us</title>
+    <script>try{if(localStorage.getItem("celebso-theme")==="light")document.documentElement.classList.add("light-mode");}catch(e){}</script>
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48.png">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Shared Navbar Styles -->
+    <link rel="stylesheet" href="css/navbar.css">
+    <!-- Shared Footer Styles -->
+    <link rel="stylesheet" href="css/footer.css">
+    <!-- Theme (light mode) -->
+    <link rel="stylesheet" href="css/theme.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            bg: '#050505',
+                            card: '#0a0a0a',
+                            border: '#1f1f1f',
+                            text: '#f3f4f6',
+                            textMuted: '#9ca3af',
+                            red: '#ffca05'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #050505;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+
+        .hero-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 600px;
+            background: radial-gradient(circle at top center, rgba(255, 202, 5, 0.15) 0%, transparent 60%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* ---------- FORM FIELDS ---------- */
+
+        .field-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #f3f4f6;
+        }
+
+        .field-input {
+            width: 100%;
+            background-color: #0a0a0a;
+            border: 1px solid #1f1f1f;
+            border-radius: 12px;
+            padding: 13px 16px;
+            font-size: 15px;
+            color: #f3f4f6;
+            outline: none;
+            transition: border-color .2s ease, box-shadow .2s ease;
+        }
+
+        .field-input::placeholder {
+            color: #6b7280;
+        }
+
+        .field-input:focus {
+            border-color: #ffca05;
+            box-shadow: 0 0 0 3px rgba(255, 202, 5, 0.12);
+        }
+
+        textarea.field-input {
+            resize: none;
+        }
+
+        /* ---------- HERO (gemini style) ---------- */
+
+        .gradient-text {
+            background: linear-gradient(90deg, #ff3366 0%, #ff6600 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* ---------- INFO CARDS ---------- */
+
+        .info-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: rgba(255, 202, 5, 0.08);
+            border: 1px solid #1f1f1f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffca05;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        /* ---------- FORM STATUS ---------- */
+
+        .form-status {
+            display: none;
+            align-items: center;
+            gap: 10px;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.35);
+            color: #4ade80;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 12px 16px;
+            border-radius: 12px;
+        }
+
+        .form-status.show {
+            display: flex;
+        }
+
+        .form-status.error {
+            background: rgba(239, 68, 68, 0.1);
+            border-color: rgba(239, 68, 68, 0.35);
+            color: #f87171;
+        }
+
+        /* ---------- FAQ ACCORDION ---------- */
+
+        .faq-item {
+            cursor: pointer;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .35s ease;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 200px;
+        }
+
+        .faq-item .faq-chevron {
+            transition: transform .3s ease;
+        }
+
+        .faq-item.open .faq-chevron {
+            transform: rotate(180deg);
+        }
+
+        /* ---------- REVEAL ---------- */
+
+        .reveal { opacity: 0; }
+        .reveal.visible { animation: revealIn .6s ease both; }
+        @keyframes revealIn { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: translateY(0); } }
+        @media(prefers-reduced-motion:reduce){ .reveal { opacity: 1; } }
+
+        /* ==================================================
+           LIGHT MODE (page specific)
+           ================================================== */
+
+        html.light-mode .field-label { color: #26272f; }
+
+        html.light-mode .field-input {
+            background-color: #ffffff;
+            border-color: #dcdfe8;
+            color: #26272f;
+        }
+
+        html.light-mode .field-input::placeholder { color: #8a8b96; }
+
+        html.light-mode .info-icon {
+            background: rgba(184, 134, 11, 0.08);
+            border-color: #e3e5ec;
+            color: #b8860b;
+        }
+
+        html.light-mode .hero-glow { opacity: .45; }
+
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header (same as home page) -->
+    <header class="navbar">
+        <div class="nav-inner">
+            <a class="logo" href="index.html">
+                <img class="main-icon main-icon-dark" src="images/ChatGPT_Image_Aug_18__2026__10_11_38_PM-removebg-preview.png" alt="Celebso">
+                <img class="main-icon main-icon-light" src="images/ChatGPT%20Image%20Aug%2021%2C%202026%2C%2003_45_23%20PM.png" alt="Celebso">
+            </a>
+            <nav class="menu">
+                <a href="about.html">About Us</a>
+                <a href="news.html">News</a>
+                <a href="blog.html">Blog</a>
+            </nav>
+            <div class="nav-auth">
+                <button class="install" type="button">↓ &nbsp; Install Now</button>
+            </div>
+            <button class="theme-toggle" type="button" aria-label="Toggle light mode">
+                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+                <svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </button>
+            <button class="nav-toggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <nav class="mobile-menu">
+        <a href="about.html">About Us</a>
+        <a href="news.html">News</a>
+        <a href="blog.html">Blog</a>
+        <div class="mobile-auth">
+            <button class="install" type="button">↓ &nbsp; Install Now</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="max-w-7xl mx-auto flex flex-col lg:flex-row px-6 py-16 items-center relative reveal">
+        <div class="hero-glow"></div>
+
+        <!-- Left: Text -->
+        <div class="w-full lg:w-1/2 relative z-10">
+            <span class="inline-block border border-purple-500/40 text-purple-400 px-5 py-1.5 rounded-full text-xs font-medium">Contact Us</span>
+            <h1 class="text-6xl lg:text-7xl font-bold mt-8 mb-5 tracking-tight text-white">Let's <span class="gradient-text">Connect.</span></h1>
+            <p class="text-gray-400 text-lg w-full lg:w-4/5 leading-relaxed mb-6">Have a question, idea, or collaboration in mind? We'd love to hear from you.</p>
+            <!-- Squiggly line SVG -->
+            <svg viewBox="0 0 250 20" class="w-64 h-6">
+                <path d="M0,10 Q30,20 60,10 T120,10 T180,10 T240,10" fill="none" stroke="url(#lineGrad)" stroke-width="2" />
+                <defs>
+                    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#ff3366" />
+                        <stop offset="100%" stop-color="#ff6600" />
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+
+        <!-- Right: Simulated 3D Chat Graphic using CSS -->
+        <div class="w-full lg:w-1/2 flex justify-center mt-12 lg:mt-0 relative z-10">
+            <div class="relative w-72 h-72 flex items-center justify-center">
+                <div class="absolute inset-0 border-[3px] border-purple-600/30 rounded-full scale-110"></div>
+                <div class="absolute inset-0 border border-purple-500/50 rounded-full scale-100"></div>
+                <!-- Platform base -->
+                <div class="absolute bottom-4 w-64 h-8 border border-purple-500/50 rounded-[100%] shadow-[0_0_30px_rgba(168,85,247,0.5)] bg-purple-900/20"></div>
+
+                <!-- Chat Bubble -->
+                <div class="relative z-10 w-48 h-40 bg-[#1e103c]/80 border-[3px] border-purple-500 rounded-3xl flex items-center justify-center shadow-[0_0_40px_rgba(168,85,247,0.6)] backdrop-blur-md mb-8">
+                    <svg class="absolute -bottom-4 left-6 w-8 h-8 text-purple-500 fill-current" viewBox="0 0 24 24"><path d="M0,0 L24,0 L0,24 Z"/></svg>
+
+                    <div class="flex gap-4">
+                        <div class="w-5 h-5 bg-yellow-500 rounded-full shadow-[0_0_15px_rgba(234,179,8,1)]"></div>
+                        <div class="w-5 h-5 bg-yellow-500 rounded-full shadow-[0_0_15px_rgba(234,179,8,1)]"></div>
+                        <div class="w-5 h-5 bg-yellow-500 rounded-full shadow-[0_0_15px_rgba(234,179,8,1)]"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Info + Form -->
+    <section class="max-w-7xl mx-auto px-6 pb-20 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+
+            <!-- Left: Info Cards -->
+            <div class="lg:col-span-5 space-y-6">
+
+                <div class="glass-card rounded-2xl p-6 flex items-center gap-5 reveal">
+                    <div class="info-icon"><i class="ph ph-envelope-simple"></i></div>
+                    <div>
+                        <h3 class="font-semibold mb-1 text-white">Email Us</h3>
+                        <a href="mailto:info@celebso.com" class="text-gray-400 text-sm hover:text-dark-red transition">info@celebso.com</a>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 flex items-center gap-5 reveal">
+                    <div class="info-icon"><i class="ph ph-map-pin"></i></div>
+                    <div>
+                        <h3 class="font-semibold mb-1 text-white">Location</h3>
+                        <p class="text-gray-400 text-sm">India</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 flex items-center gap-5 reveal">
+                    <div class="info-icon"><i class="ph ph-clock"></i></div>
+                    <div>
+                        <h3 class="font-semibold mb-1 text-white">Response Time</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">We typically respond within 24 hours.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-2xl p-6 reveal">
+                    <h3 class="font-semibold mb-4 text-white">Follow Us</h3>
+                    <div class="flex gap-3">
+                        <a href="https://www.linkedin.com/company/celebso/posts/?feedView=all" target="_blank" rel="noopener" aria-label="LinkedIn" class="w-11 h-11 rounded-full bg-dark-bg border border-dark-border flex items-center justify-center text-gray-400 hover:text-dark-red hover:border-dark-red transition">
+                            <i class="ph ph-linkedin-logo text-xl"></i>
+                        </a>
+                        <a href="https://www.instagram.com/celebsox?igsh=MXh6MjJ1cjg4ZWp2cA==" target="_blank" rel="noopener" aria-label="Instagram" class="w-11 h-11 rounded-full bg-dark-bg border border-dark-border flex items-center justify-center text-gray-400 hover:text-dark-red hover:border-dark-red transition">
+                            <i class="ph ph-instagram-logo text-xl"></i>
+                        </a>
+                        <a href="https://x.com/Celebso_" target="_blank" rel="noopener" aria-label="X" class="w-11 h-11 rounded-full bg-dark-bg border border-dark-border flex items-center justify-center text-gray-400 hover:text-dark-red hover:border-dark-red transition">
+                            <i class="ph ph-x-logo text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right: Form -->
+            <div class="lg:col-span-7">
+                <form id="contactForm" class="glass-card rounded-3xl p-8 md:p-10 reveal" novalidate>
+
+                    <h2 class="text-2xl font-bold mb-2 text-white">Send Us a Message</h2>
+                    <p class="text-gray-400 text-sm mb-8">Fill out the form below and we'll get back to you shortly.</p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="field-label">Your Name</label>
+                            <input type="text" id="name" name="name" class="field-input" placeholder="Enter your name" required>
+                        </div>
+                        <div>
+                            <label for="email" class="field-label">Email Address</label>
+                            <input type="email" id="email" name="email" class="field-input" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+
+                    <div class="mt-6">
+                        <label for="subject" class="field-label">Subject</label>
+                        <input type="text" id="subject" name="subject" class="field-input" placeholder="What is this regarding?" required>
+                    </div>
+
+                    <div class="mt-6">
+                        <label for="message" class="field-label">Message</label>
+                        <textarea id="message" name="message" rows="5" class="field-input" placeholder="Type your message here..." required></textarea>
+                    </div>
+
+                    <div id="formStatus" class="form-status mt-6"></div>
+
+                    <button type="submit" class="mt-8 w-full bg-dark-red text-white text-sm font-semibold py-4 rounded-xl hover:bg-[#d99e00] transition flex items-center justify-center gap-2">
+                        Send Message <i class="ph ph-paper-plane-right"></i>
+                    </button>
+
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <section class="max-w-7xl mx-auto px-6 pb-16 relative z-10 reveal">
+        <div class="glass-card rounded-3xl p-8 flex flex-col md:flex-row justify-between items-center gap-6 shadow-[0_0_20px_rgba(255,202,5,0.05)] reveal">
+            <div class="flex items-center gap-6">
+                <div class="w-14 h-14 bg-dark-bg rounded-full flex items-center justify-center flex-shrink-0 border border-dark-border shadow-[0_0_15px_rgba(255,202,5,0.2)]">
+                    <i class="ph ph-handshake text-dark-red text-2xl"></i>
+                </div>
+                <div>
+                    <h3 class="text-lg font-medium text-white">For Partnerships &amp; Business.</h3>
+                    <p class="text-gray-400">Let's build something meaningful together.</p>
+                </div>
+            </div>
+            <a href="mailto:info@celebso.com" class="bg-dark-red text-white text-sm font-semibold px-6 py-3 rounded-lg hover:bg-[#d99e00] transition flex items-center gap-2 whitespace-nowrap">
+                Business Inquiries <i class="ph ph-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Quick Answers (FAQ) -->
+    <section class="max-w-5xl mx-auto px-6 pb-24 relative z-10">
+        <div class="text-center mb-12 reveal">
+            <p class="text-dark-red text-sm font-bold tracking-widest uppercase mb-4">QUICK ANSWERS</p>
+            <h2 class="text-3xl font-bold tracking-tight text-white">Frequently Asked Questions</h2>
+        </div>
+
+        <div class="space-y-4">
+
+            <div class="glass-card rounded-2xl p-6 faq-item reveal">
+                <div class="flex justify-between items-start gap-4">
+                    <h4 class="font-medium text-[15px] text-white">How can I join CelebsoX?</h4>
+                    <i class="ph ph-caret-down faq-chevron text-gray-400 mt-1"></i>
+                </div>
+                <div class="faq-answer">
+                    <p class="text-gray-400 text-[15px] leading-relaxed pt-3">Download the app and create your profile to get started. It only takes a few minutes to set up.</p>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-6 faq-item reveal">
+                <div class="flex justify-between items-start gap-4">
+                    <h4 class="font-medium text-[15px] text-white">Is CelebsoX free to use?</h4>
+                    <i class="ph ph-caret-down faq-chevron text-gray-400 mt-1"></i>
+                </div>
+                <div class="faq-answer">
+                    <p class="text-gray-400 text-[15px] leading-relaxed pt-3">Yes, CelebsoX is free to join. Explore, connect and grow without limits.</p>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-6 faq-item reveal">
+                <div class="flex justify-between items-start gap-4">
+                    <h4 class="font-medium text-[15px] text-white">How can brands collaborate?</h4>
+                    <i class="ph ph-caret-down faq-chevron text-gray-400 mt-1"></i>
+                </div>
+                <div class="faq-answer">
+                    <p class="text-gray-400 text-[15px] leading-relaxed pt-3">Brands can reach out through the contact form above or email us directly at info@celebso.com.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer (same as home page) -->
+
+<footer id="contact">
+
+<div class="footer-hero">
+
+    <img class="footer-hero-dark" src="images/footer-dark.jpg" alt="Celebso">
+    <img class="footer-hero-light" src="images/WhatsApp%20Image%202026-08-15%20at%2011.42.58%20AM.jpeg" alt="Celebso">
+
+    <div class="footer-text">
+
+        <div class="footer-logo">
+
+<img class="main-icon footer-logo-dark" src="images/ChatGPT%20Image%20Aug%2018%2C%202026%2C%2010_51_46%20PM.png" alt="Celebso">
+<img class="main-icon footer-logo-light" src="images/ChatGPT_Image_Aug_21__2026__03_24_01_PM-removebg-preview.png" alt="Celebso">
+
+        </div>
+
+        <div class="footer-menu">
+
+            <a href="contact.html">Contact Us</a>
+            <a href="terms.html">Terms</a>
+            <a href="help-center.html">Help Center</a>
+
+        </div>
+
+        <div class="email">
+        info@celebso.com
+        </div>
+
+        <div class="social">
+        <a class="soc" href="https://www.linkedin.com/company/celebso/posts/?feedView=all" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 448 512"><path fill="currentColor" d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg></a>
+        <a class="soc" href="https://www.instagram.com/celebsox?igsh=MXh6MjJ1cjg4ZWp2cA==" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 448 512"><path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM448 261.9c0 37.4-.4 74.6-2.6 112-2.3 43.6-12.1 82.2-43.9 114-31.8 31.8-70.4 41.6-114 43.9-37.4 2.2-74.6 2.6-112 2.6s-74.6-.4-112-2.6c-43.6-2.3-82.2-12.1-114-43.9-31.8-31.8-41.6-70.4-43.9-114-2.2-37.4-2.6-74.6-2.6-112s.4-74.6 2.6-112c2.3-43.6 12.1-82.2 43.9-114 31.8-31.8 70.4-41.6 114-43.9 37.4-2.2 74.6-2.6 112-2.6s74.6.4 112 2.6c43.6 2.3 82.2 12.1 114 43.9 31.8 31.8 41.6 70.4 43.9 114 2.2 37.4 2.6 74.6 2.6 112z"/></svg></a>
+        <a class="soc" href="https://x.com/Celebso_" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 512 512"><path fill="currentColor" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg></a>
+        </div>
+
+        <div class="copy">
+        © 2026 ANTELLAY Tech. All Rights Reserved. A Celebso Group Company.
+        </div>
+
+    </div>
+
+</div>
+
+</footer>
+
+    <!-- Page scripts (theme toggle comes from js/script.js) -->
+    <script src="js/script.js"></script>
+    <script>
+    (function () {
+        "use strict";
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            /* ---------- CONTACT FORM ---------- */
+            var form = document.getElementById("contactForm");
+            var status = document.getElementById("formStatus");
+
+            if (form && status) {
+                form.addEventListener("submit", function (e) {
+                    e.preventDefault();
+
+                    var fields = ["name", "email", "subject", "message"];
+                    var valid = true;
+
+                    fields.forEach(function (id) {
+                        var input = document.getElementById(id);
+                        if (!input.value.trim()) {
+                            input.style.borderColor = "#ef4444";
+                            valid = false;
+                        } else {
+                            input.style.borderColor = "";
+                        }
+                    });
+
+                    status.classList.remove("error");
+
+                    if (!valid) {
+                        status.textContent = "Please fill in all the fields.";
+                        status.classList.add("show", "error");
+                        return;
+                    }
+
+                    var emailInput = document.getElementById("email");
+                    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value.trim())) {
+                        emailInput.style.borderColor = "#ef4444";
+                        status.textContent = "Please enter a valid email address.";
+                        status.classList.add("show", "error");
+                        return;
+                    }
+
+                    status.classList.remove("error");
+                    status.innerHTML = "<i class=\"ph ph-check-circle text-lg\"></i> Thank you! Your message has been sent. We'll get back to you soon.";
+                    status.classList.add("show");
+                    form.reset();
+                });
+            }
+
+            /* ---------- FAQ ACCORDION ---------- */
+            var faqs = document.querySelectorAll(".faq-item");
+            faqs.forEach(function (item) {
+                item.addEventListener("click", function () {
+                    var wasOpen = item.classList.contains("open");
+                    faqs.forEach(function (other) { other.classList.remove("open"); });
+                    if (!wasOpen) item.classList.add("open");
+                });
+            });
+
+        });
+    })();
+    </script>
+</body>
+</html>

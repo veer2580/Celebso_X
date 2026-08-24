@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CelebsoX - Founding Member</title>
     <script>try{if(localStorage.getItem("celebso-theme")==="light")document.documentElement.classList.add("light-mode");}catch(e){}</script>
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48.png">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,9 +15,9 @@
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Main site stylesheet -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=2">
     <!-- Theme (light mode) -->
-    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/theme.css?v=2">
 
     <style>
         :root {
@@ -36,10 +39,20 @@
         }
 
         body {
-            background: var(--bg-color);
+            background:
+                radial-gradient(circle at 70% 15%, #17103b 0%, transparent 27%),
+                radial-gradient(circle at 20% 65%, #160d2a 0%, transparent 25%),
+                #070812;
             color: var(--text-main);
             overflow-x: hidden;
             position: relative;
+        }
+
+        html.light-mode body {
+            background:
+                radial-gradient(circle at 70% 15%, #ece7ff 0%, transparent 27%),
+                radial-gradient(circle at 20% 65%, #ffe8f2 0%, transparent 25%),
+                #f6f7fb;
         }
 
         /* Background Elements */
@@ -179,7 +192,7 @@
             font-size: 24px;
             color: var(--gold);
             margin: -80px auto 20px auto;
-            background: var(--bg-color);
+            background: #070812;
         }
 
         .form-header {
@@ -353,7 +366,7 @@
 
         .launch-banner::before, .launch-banner::after {
             content: "";
-            width: 150px;
+            width: min(150px, 20vw);
             height: 1px;
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
         }
@@ -377,97 +390,6 @@
             margin-bottom: 40px;
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 900px) {
-            .features-container {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 40px 20px;
-            }
-            .feature-item:nth-child(2)::after {
-                display: none;
-            }
-        }
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 40px; }
-        }
-        @media (max-width: 480px) {
-            .hero {
-                margin-top: 30px;
-            }
-            .hero h1 {
-                font-size: 34px;
-            }
-            .hero p {
-                font-size: 14px;
-                margin-bottom: 30px;
-                padding: 0 10px;
-            }
-            .eyebrow {
-                font-size: 11px;
-                gap: 10px;
-            }
-            .eyebrow::before,
-            .eyebrow::after {
-                width: 24px;
-            }
-            .form-wrapper {
-                padding: 28px 18px;
-                border-radius: 16px;
-            }
-            .profile-icon {
-                margin-top: -62px;
-                width: 52px;
-                height: 52px;
-                font-size: 20px;
-            }
-            .form-header h2 {
-                font-size: 20px;
-            }
-            .form-header p {
-                font-size: 13px;
-            }
-            .features-container {
-                grid-template-columns: 1fr;
-                padding: 28px 22px;
-                gap: 34px;
-                border-radius: 16px;
-            }
-            .feature-item::after {
-                display: none;
-            }
-            .feature-item {
-                padding: 0;
-            }
-            .launch-banner {
-                flex-direction: column;
-                gap: 8px;
-                text-align: center;
-                margin: 40px 0;
-            }
-            .launch-banner h3 {
-                font-size: 18px;
-            }
-            .launch-banner::before,
-            .launch-banner::after {
-                width: 60px;
-            }
-            .input-wrapper input {
-                padding: 14px 12px 14px 42px;
-                font-size: 13px;
-            }
-            .btn-submit {
-                padding: 15px;
-                font-size: 13px;
-            }
-            .bg-x-top {
-                font-size: 220px;
-                top: 20px;
-                right: -30px;
-            }
-            .bg-x-bottom {
-                font-size: 180px;
-            }
-        }
     </style>
 </head>
 <body>
@@ -633,7 +555,7 @@
 
             <div class="footer-menu">
 
-                <a href="#contact">Contact Us</a>
+                <a href="contact.html">Contact Us</a>
                 <a href="terms.html">Terms</a>
                 <a href="help-center.html">Help Center</a>
 
