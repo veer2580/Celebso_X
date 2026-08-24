@@ -112,22 +112,11 @@
     margin-left:auto;
 }
 
-.auth-login{
-    font-size:13px;
-    font-weight:600;
-    color:#c8c8d0;
-    transition:color .2s;
-}
-
-.auth-login:hover{
-    color:#ffca05;
-}
-
-.auth-signup{
+.nav-auth .install{
     background:linear-gradient(90deg,#ffb700,#ffd000);
     color:#171717;
     border:0;
-    padding:11px 20px;
+    padding:12px 22px;
     border-radius:24px;
     font-size:13px;
     font-weight:bold;
@@ -135,7 +124,7 @@
     transition:.25s;
 }
 
-.auth-signup:hover{
+.nav-auth .install:hover{
     transform:translateY(-2px);
     box-shadow:0 6px 20px rgba(255,202,5,.35);
 }
@@ -227,15 +216,8 @@
     margin-top:8px;
 }
 
-.mobile-auth .auth-login{
-    text-align:center;
-    padding:13px 14px;
-    border-radius:10px;
-    border:1px solid rgba(255,255,255,.15);
-    font-size:15px;
-}
-
-.mobile-auth .auth-signup{
+.mobile-auth .install{
+    width:100%;
     text-align:center;
     padding:13px 14px;
     font-size:15px;
@@ -320,6 +302,15 @@
     .w-24.h-24{width:5rem !important; height:5rem !important;}
 
     .flex.items-center.gap-8{flex-direction:column; text-align:center;}
+
+    .flex.overflow-x-auto.no-scrollbar{
+        justify-content:flex-start !important;
+        -webkit-overflow-scrolling:touch;
+        scrollbar-width:none;
+    }
+    .flex.overflow-x-auto.no-scrollbar::-webkit-scrollbar{
+        display:none;
+    }
 }
 
 @media(max-width:480px){

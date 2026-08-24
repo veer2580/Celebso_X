@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Celebso - News</title>
+    <script>try{if(localStorage.getItem("celebso-theme")==="light")document.documentElement.classList.add("light-mode");}catch(e){}</script>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -18,7 +19,7 @@
                             border: '#1f1f1f',
                             text: '#f3f4f6',
                             textMuted: '#9ca3af',
-                            red: '#ff3333'
+                            red: '#ffca05'
                         }
                     }
                 }
@@ -33,6 +34,8 @@
     <link rel="stylesheet" href="css/navbar.css">
     <!-- Shared Footer Styles -->
     <link rel="stylesheet" href="css/footer.css">
+    <!-- Theme (light mode) -->
+    <link rel="stylesheet" href="css/theme.css">
     
     <style>
         body {
@@ -47,7 +50,7 @@
             left: 0;
             right: 0;
             height: 600px;
-            background: radial-gradient(circle at top center, rgba(255, 51, 51, 0.15) 0%, transparent 60%);
+            background: radial-gradient(circle at top center, rgba(255, 202, 5, 0.15) 0%, transparent 60%);
             z-index: 0;
             pointer-events: none;
         }
@@ -77,7 +80,8 @@
     <header class="navbar">
         <div class="nav-inner">
             <a class="logo" href="index.html">
-                <img class="main-icon" src="images/ChatGPT_Image_Aug_18__2026__10_11_38_PM-removebg-preview.png" alt="Celebso">
+                <img class="main-icon main-icon-dark" src="images/ChatGPT_Image_Aug_18__2026__10_11_38_PM-removebg-preview.png" alt="Celebso">
+                <img class="main-icon main-icon-light" src="images/ChatGPT%20Image%20Aug%2021%2C%202026%2C%2003_45_23%20PM.png" alt="Celebso">
             </a>
             <nav class="menu">
                 <a href="about.html">About Us</a>
@@ -85,9 +89,12 @@
                 <a href="blog.html">Blog</a>
             </nav>
             <div class="nav-auth">
-                <a href="#" class="auth-login">Log in</a>
-                <a href="#" class="auth-signup">Create account</a>
+                <button class="install" type="button">↓ &nbsp; Install Now</button>
             </div>
+            <button class="theme-toggle" type="button" aria-label="Toggle light mode">
+                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+                <svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </button>
             <button class="nav-toggle" aria-label="Menu">
                 <span></span><span></span><span></span>
             </button>
@@ -99,8 +106,7 @@
         <a href="news.html">News</a>
         <a href="blog.html">Blog</a>
         <div class="mobile-auth">
-            <a href="#" class="auth-login">Log in</a>
-            <a href="#" class="auth-signup">Create account</a>
+            <button class="install" type="button">↓ &nbsp; Install Now</button>
         </div>
     </nav>
 
@@ -109,7 +115,7 @@
         
         <!-- Hero Section --><div class="hero-glow"></div>
         <div class="text-center pt-12 pb-10 max-w-3xl mx-auto reveal">
-            <p class="text-[#f03e3e] text-xs font-bold tracking-widest uppercase mb-4">News</p>
+            <p class="text-[#ffca05] text-xs font-bold tracking-widest uppercase mb-4">News</p>
             <h1 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight text-white">What's Happening on Celebso</h1>
             <p class="text-dark-textMuted text-lg mb-10 max-w-xl mx-auto leading-relaxed">
                 Stay updated with the latest announcements, product updates, features, and community stories.
@@ -119,7 +125,7 @@
             <div class="flex items-center w-full max-w-2xl mx-auto bg-dark-card border border-dark-border rounded-full p-2 pl-6 shadow-sm focus-within:ring-2 focus-within:ring-dark-border transition-all">
                 <i class="ph ph-magnifying-glass text-dark-textMuted text-xl mr-3"></i>
                 <input type="text" placeholder="Search news, topics or keywords..." class="flex-1 outline-none text-sm text-dark-text bg-transparent placeholder-dark-textMuted">
-                <button class="bg-dark-red text-white text-sm font-semibold px-6 py-2.5 rounded-full hover:bg-red-600 transition">Search</button>
+                <button class="bg-dark-red text-white text-sm font-semibold px-6 py-2.5 rounded-full hover:bg-[#d99e00] transition">Search</button>
             </div>
         </div>
 
@@ -138,9 +144,10 @@
         <div class="glass-card rounded-[32px] overflow-hidden mb-16 shadow-sm hover:shadow-md transition-shadow reveal flex flex-col lg:flex-row">
             <!-- Image Area -->
             <div class="lg:w-1/2 relative bg-gray-900 min-h-[300px]">
-                <img src="images/ChatGPT%20Image%20Aug%2020%2C%202026%2C%2001_36_54%20PM.png" alt="Featured App Update" class="w-full h-full object-cover">
+                <img src="images/ChatGPT%20Image%20Aug%2020%2C%202026%2C%2001_36_54%20PM.png" alt="Featured App Update" class="featured-img-dark w-full h-full object-cover">
+                <img src="images/ChatGPT%20Image%20Aug%2021%2C%202026%2C%2003_25_28%20PM.png" alt="Featured App Update" class="featured-img-light w-full h-full object-cover">
                 <div class="absolute top-6 left-6">
-                    <span class="bg-[#f03e3e] text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full">Featured</span>
+                    <span class="bg-[#ffca05] text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full">Featured</span>
                 </div>
                 <!-- Carousel Indicators -->
                 <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2">
@@ -155,13 +162,13 @@
                 <div class="flex items-center gap-2 text-xs font-medium mb-4">
                     <span class="text-dark-textMuted">May 18, 2025</span>
                     <span class="text-gray-400">•</span>
-                    <span class="text-[#f03e3e]">Product Update</span>
+                    <span class="text-[#ffca05]">Product Update</span>
                 </div>
                 <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight tracking-tight">Celebso 2.0 is Here! A Better Way to Connect.</h2>
                 <p class="text-dark-textMuted mb-8 leading-relaxed">
                     We've upgraded Celebso with a fresh new look, faster performance, and powerful new features to help you create, connect and grow.
                 </p>
-                <a href="#" class="inline-flex items-center gap-2 text-sm font-bold text-white hover:text-[#f03e3e] transition">
+                <a href="#" class="inline-flex items-center gap-2 text-sm font-bold text-white hover:text-[#ffca05] transition">
                     Read more <i class="ph ph-arrow-right text-lg"></i>
                 </a>
             </div>
@@ -250,9 +257,9 @@
                 <!-- Icon Composition -->
                 <div class="relative w-24 h-24 flex-shrink-0 flex items-center justify-center">
                     <!-- Red glow shadow -->
-                    <div class="absolute inset-0 bg-[#f03e3e] rounded-full blur-xl opacity-30"></div>
+                    <div class="absolute inset-0 bg-[#ffca05] rounded-full blur-xl opacity-30"></div>
                     <!-- Red Envelope Circle -->
-                    <div class="relative w-20 h-20 bg-[#f03e3e] rounded-full flex items-center justify-center z-10">
+                    <div class="relative w-20 h-20 bg-[#ffca05] rounded-full flex items-center justify-center z-10">
                         <i class="ph ph-envelope-simple text-white text-3xl"></i>
                     </div>
                     <!-- White Bell Notification Badge -->
@@ -270,7 +277,7 @@
             <div class="w-full md:w-auto flex-1 max-w-md">
                 <div class="flex items-center bg-dark-card border border-dark-border rounded-lg p-1.5 shadow-sm">
                     <input type="email" placeholder="Enter your email" class="flex-1 outline-none text-sm text-dark-text bg-transparent px-4 placeholder-dark-textMuted">
-                    <button class="bg-dark-red text-white text-sm font-semibold px-6 py-2.5 rounded-md hover:bg-red-600 transition whitespace-nowrap">Subscribe</button>
+                    <button class="bg-dark-red text-white text-sm font-semibold px-6 py-2.5 rounded-md hover:bg-[#d99e00] transition whitespace-nowrap">Subscribe</button>
                 </div>
             </div>
         </div>
@@ -284,12 +291,14 @@
 <div class="footer-hero">
 
     <img class="footer-hero-dark" src="images/footer-dark.jpg" alt="Celebso">
+    <img class="footer-hero-light" src="images/WhatsApp%20Image%202026-08-15%20at%2011.42.58%20AM.jpeg" alt="Celebso">
 
     <div class="footer-text">
 
         <div class="footer-logo">
 
-<img class="main-icon" src="images/ChatGPT%20Image%20Aug%2018%2C%202026%2C%2010_51_46%20PM.png" alt="Celebso">
+<img class="main-icon footer-logo-dark" src="images/ChatGPT%20Image%20Aug%2018%2C%202026%2C%2010_51_46%20PM.png" alt="Celebso">
+<img class="main-icon footer-logo-light" src="images/ChatGPT_Image_Aug_21__2026__03_24_01_PM-removebg-preview.png" alt="Celebso">
 
         </div>
 

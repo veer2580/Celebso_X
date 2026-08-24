@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CelebsoX - Founding Member</title>
+    <script>try{if(localStorage.getItem("celebso-theme")==="light")document.documentElement.classList.add("light-mode");}catch(e){}</script>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,6 +13,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Main site stylesheet -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- Theme (light mode) -->
+    <link rel="stylesheet" href="css/theme.css">
 
     <style>
         :root {
@@ -40,6 +43,14 @@
         }
 
         /* Background Elements */
+        .bg-decor {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            z-index: -3;
+            pointer-events: none;
+        }
+
         .bg-arch {
             position: absolute;
             top: 25%;
@@ -69,7 +80,7 @@
 
         .bg-x-bottom {
             position: absolute;
-            bottom: -50px;
+            bottom: -120px;
             right: 0;
             font-size: 300px;
             font-weight: 300;
@@ -347,85 +358,6 @@
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
         }
 
-        /* Footer */
-        footer {
-            border-top: 1px solid rgba(255,255,255,0.05);
-            padding: 60px 0 30px 0;
-            margin-top: 40px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 50px;
-        }
-
-        .footer-brand .logo {
-            margin-bottom: 15px;
-        }
-
-        .footer-brand p {
-            color: var(--text-muted);
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        .footer-links h4, .footer-social h4 {
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links ul li {
-            margin-bottom: 12px;
-        }
-
-        .footer-links ul li a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 13px;
-            transition: color 0.3s;
-        }
-
-        .footer-links ul li a:hover {
-            color: var(--gold);
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 15px;
-        }
-
-        .social-icons a {
-            width: 36px;
-            height: 36px;
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gold);
-            text-decoration: none;
-            transition: background 0.3s;
-        }
-
-        .social-icons a:hover {
-            background: rgba(255,255,255,0.05);
-        }
-
-        .copyright {
-            text-align: center;
-            color: #666;
-            font-size: 12px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.05);
-        }
-
         /* Overrides for shared style.css */
         .hero {
             height: auto;
@@ -441,16 +373,8 @@
             display: none;
         }
 
-        footer {
-            background: transparent;
-            text-align: left;
-        }
-
-        .footer-brand .logo {
-            display: block;
-            gap: 0;
-            font-size: 28px;
-            font-weight: 600;
+        main {
+            margin-bottom: 40px;
         }
 
         /* Responsive adjustments */
@@ -461,9 +385,6 @@
             }
             .feature-item:nth-child(2)::after {
                 display: none;
-            }
-            .footer-content {
-                grid-template-columns: 1fr;
             }
         }
         @media (max-width: 768px) {
@@ -530,13 +451,6 @@
             .launch-banner::after {
                 width: 60px;
             }
-            .footer-content {
-                gap: 32px;
-                padding: 0 10px;
-            }
-            .footer-brand .logo {
-                font-size: 24px;
-            }
             .input-wrapper input {
                 padding: 14px 12px 14px 42px;
                 font-size: 13px;
@@ -565,7 +479,8 @@
 
         <a class="logo" href="index.html">
 
-            <img class="main-icon" src="images/ChatGPT_Image_Aug_18__2026__10_11_38_PM-removebg-preview.png" alt="Celebso">
+            <img class="main-icon main-icon-dark" src="images/ChatGPT_Image_Aug_18__2026__10_11_38_PM-removebg-preview.png" alt="Celebso">
+            <img class="main-icon main-icon-light" src="images/ChatGPT%20Image%20Aug%2021%2C%202026%2C%2003_45_23%20PM.png" alt="Celebso">
 
         </a>
 
@@ -576,6 +491,11 @@
         </nav>
 
         <button class="install">↓ &nbsp; Install Now</button>
+
+        <button class="theme-toggle" type="button" aria-label="Toggle light mode">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
 
         <button class="nav-toggle" aria-label="Menu">
             <span></span><span></span><span></span>
@@ -592,9 +512,11 @@
     </nav>
 
     <!-- Background Elements -->
-    <div class="bg-arch"></div>
-    <div class="bg-x-top">X</div>
-    <div class="bg-x-bottom">X</div>
+    <div class="bg-decor">
+        <div class="bg-arch"></div>
+        <div class="bg-x-top">X</div>
+        <div class="bg-x-bottom">X</div>
+    </div>
 
     <div class="container">
         <!-- Main Content -->
@@ -689,38 +611,53 @@
                 <h3>Launching in 2 months</h3>
             </div>
         </main>
-
-        <!-- Footer -->
-        <footer>
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="logo">Celebso<span>X</span></div>
-                    <p>Where Work Gets Recognized.<br>Where You Become Celeb.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html#home">Home</a></li>
-                        <li><a href="index.html#about">About</a></li>
-                        <li><a href="index.html#community">Vision</a></li>
-                        <li><a href="index.html#creators">Roadmap</a></li>
-                        <li><a href="index.html#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-social">
-                    <h4>Follow Us</h4>
-                    <div class="social-icons">
-                        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="copyright">
-                &copy; 2026 ANTELLAY Tech. All Rights Reserved. A Celebso Group Company.
-            </div>
-        </footer>
     </div>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer id="contact">
+
+    <div class="footer-hero">
+
+        <img class="footer-hero-dark" src="images/footer-dark.jpg" alt="Celebso">
+        <img class="footer-hero-light" src="images/WhatsApp%20Image%202026-08-15%20at%2011.42.58%20AM.jpeg" alt="Celebso">
+
+        <div class="footer-text">
+
+            <div class="footer-logo">
+
+                <img class="main-icon footer-logo-dark" src="images/ChatGPT%20Image%20Aug%2018%2C%202026%2C%2010_51_46%20PM.png" alt="Celebso">
+                <img class="main-icon footer-logo-light" src="images/ChatGPT_Image_Aug_21__2026__03_24_01_PM-removebg-preview.png" alt="Celebso">
+
+            </div>
+
+            <div class="footer-menu">
+
+                <a href="#contact">Contact Us</a>
+                <a href="terms.html">Terms</a>
+                <a href="help-center.html">Help Center</a>
+
+            </div>
+
+            <div class="email">
+            info@celebso.com
+            </div>
+
+            <div class="social">
+            <a class="soc" href="https://www.linkedin.com/company/celebso/posts/?feedView=all" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 448 512"><path fill="currentColor" d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg></a>
+            <a class="soc" href="https://www.instagram.com/celebsox?igsh=MXh6MjJ1cjg4ZWp2cA==" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 448 512"><path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM448 261.9c0 37.4-.4 74.6-2.6 112-2.3 43.6-12.1 82.2-43.9 114-31.8 31.8-70.4 41.6-114 43.9-37.4 2.2-74.6 2.6-112 2.6s-74.6-.4-112-2.6c-43.6-2.3-82.2-12.1-114-43.9-31.8-31.8-41.6-70.4-43.9-114-2.2-37.4-2.6-74.6-2.6-112s.4-74.6 2.6-112c2.3-43.6 12.1-82.2 43.9-114 31.8-31.8 70.4-41.6 114-43.9 37.4-2.2 74.6-2.6 112-2.6s74.6.4 112 2.6c43.6 2.3 82.2 12.1 114 43.9 31.8 31.8 41.6 70.4 43.9 114 2.2 37.4 2.6 74.6 2.6 112z"/></svg></a>
+            <a class="soc" href="https://x.com/Celebso_" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 512 512"><path fill="currentColor" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg></a>
+            </div>
+
+            <div class="copy">
+            © 2026 ANTELLAY Tech. All Rights Reserved. A Celebso Group Company.
+            </div>
+
+        </div>
+
+    </div>
+
+    </footer>
 
     <script src="js/script.js"></script>
 </body>

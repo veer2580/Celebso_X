@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Celebso - Terms & Conditions</title>
+    <script>try{if(localStorage.getItem("celebso-theme")==="light")document.documentElement.classList.add("light-mode");}catch(e){}</script>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -18,7 +19,7 @@
                             border: '#1f1f1f',
                             text: '#f3f4f6',
                             textMuted: '#9ca3af',
-                            red: '#ff3333'
+                            red: '#ffca05'
                         }
                     }
                 }
@@ -33,6 +34,8 @@
     <link rel="stylesheet" href="css/navbar.css">
     <!-- Shared Footer Styles -->
     <link rel="stylesheet" href="css/footer.css">
+    <!-- Theme (light mode) -->
+    <link rel="stylesheet" href="css/theme.css">
     
     <style>
         body {
@@ -47,7 +50,7 @@
             left: 0;
             right: 0;
             height: 600px;
-            background: radial-gradient(circle at top center, rgba(255, 51, 51, 0.15) 0%, transparent 60%);
+            background: radial-gradient(circle at top center, rgba(255, 202, 5, 0.15) 0%, transparent 60%);
             z-index: 0;
             pointer-events: none;
         }
@@ -70,7 +73,8 @@
     <header class="navbar">
         <div class="nav-inner">
             <a class="logo" href="index.html">
-                <img class="main-icon" src="images/ChatGPT_Image_Aug_18__2026__10_11_38_PM-removebg-preview.png" alt="Celebso">
+                <img class="main-icon main-icon-dark" src="images/ChatGPT_Image_Aug_18__2026__10_11_38_PM-removebg-preview.png" alt="Celebso">
+                <img class="main-icon main-icon-light" src="images/ChatGPT%20Image%20Aug%2021%2C%202026%2C%2003_45_23%20PM.png" alt="Celebso">
             </a>
             <nav class="menu">
                 <a href="about.html">About Us</a>
@@ -78,9 +82,12 @@
                 <a href="blog.html">Blog</a>
             </nav>
             <div class="nav-auth">
-                <a href="#" class="auth-login">Log in</a>
-                <a href="#" class="auth-signup">Create account</a>
+                <button class="install" type="button">↓ &nbsp; Install Now</button>
             </div>
+            <button class="theme-toggle" type="button" aria-label="Toggle light mode">
+                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+                <svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </button>
             <button class="nav-toggle" aria-label="Menu">
                 <span></span><span></span><span></span>
             </button>
@@ -92,8 +99,7 @@
         <a href="news.html">News</a>
         <a href="blog.html">Blog</a>
         <div class="mobile-auth">
-            <a href="#" class="auth-login">Log in</a>
-            <a href="#" class="auth-signup">Create account</a>
+            <button class="install" type="button">↓ &nbsp; Install Now</button>
         </div>
     </nav>
 
@@ -271,12 +277,14 @@
 <div class="footer-hero">
 
     <img class="footer-hero-dark" src="images/footer-dark.jpg" alt="Celebso">
+    <img class="footer-hero-light" src="images/WhatsApp%20Image%202026-08-15%20at%2011.42.58%20AM.jpeg" alt="Celebso">
 
     <div class="footer-text">
 
         <div class="footer-logo">
 
-<img class="main-icon" src="images/ChatGPT%20Image%20Aug%2018%2C%202026%2C%2010_51_46%20PM.png" alt="Celebso">
+<img class="main-icon footer-logo-dark" src="images/ChatGPT%20Image%20Aug%2018%2C%202026%2C%2010_51_46%20PM.png" alt="Celebso">
+<img class="main-icon footer-logo-light" src="images/ChatGPT_Image_Aug_21__2026__03_24_01_PM-removebg-preview.png" alt="Celebso">
 
         </div>
 

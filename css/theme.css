@@ -1,0 +1,596 @@
+/* ==================================================
+   CELEBSO Theme - Toggle Button + Light Mode
+   File: css/theme.css
+   Loaded on every page (after other stylesheets).
+   ================================================== */
+
+/* ================= THEME TOGGLE BUTTON ================= */
+
+.theme-toggle{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.18);
+    background:rgba(255,255,255,.06);
+    color:#ffca05;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition:.25s;
+    margin-left:14px;
+    flex-shrink:0;
+}
+
+.theme-toggle:hover{
+    transform:rotate(20deg) scale(1.08);
+    box-shadow:0 0 16px rgba(255,202,5,.35);
+}
+
+.theme-toggle svg{
+    width:19px;
+    height:19px;
+}
+
+.theme-toggle .icon-moon{
+    display:none;
+}
+
+html.light-mode .theme-toggle{
+    border-color:rgba(0,0,0,.15);
+    background:rgba(0,0,0,.05);
+    color:#e8940a;
+}
+
+html.light-mode .theme-toggle:hover{
+    box-shadow:0 0 16px rgba(232,148,10,.35);
+}
+
+html.light-mode .theme-toggle .icon-sun{
+    display:none;
+}
+
+html.light-mode .theme-toggle .icon-moon{
+    display:block;
+}
+
+/* ==================================================
+   LIGHT MODE
+   ================================================== */
+
+/* ---------- BASE ---------- */
+
+html.light-mode{
+    color-scheme:light;
+}
+
+html.light-mode body{
+    background:
+        radial-gradient(circle at 70% 15%,#ece7ff 0%,transparent 27%),
+        radial-gradient(circle at 20% 65%,#ffe8f2 0%,transparent 25%),
+        #f6f7fb;
+    color:#17181f;
+}
+
+/* ---------- NAVBAR (shared) ---------- */
+
+html.light-mode .navbar{
+    background:rgba(255,255,255,.94);
+    border-bottom-color:rgba(0,0,0,.08);
+}
+
+html.light-mode .menu{
+    background:linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,.01));
+    border-color:rgba(0,0,0,.10);
+    box-shadow:0 8px 24px rgba(0,0,0,.08), inset 0 1px 0 rgba(255,255,255,.7);
+}
+
+html.light-mode .menu a{
+    color:#4a4a55;
+}
+
+html.light-mode .menu a:hover,
+html.light-mode .menu a.active{
+    color:#8a6d00;
+}
+
+html.light-mode .nav-toggle{
+    border-color:rgba(0,0,0,.15);
+}
+
+html.light-mode .nav-toggle span{
+    background:#d99e00;
+}
+
+html.light-mode .mobile-menu{
+    background:rgba(255,255,255,.98);
+    border-bottom-color:rgba(0,0,0,.08);
+}
+
+html.light-mode .mobile-menu a{
+    color:#33343c;
+}
+
+html.light-mode .mobile-menu a:hover,
+html.light-mode .mobile-menu a.active{
+    color:#8a6d00;
+    border-color:rgba(202,150,4,.35);
+}
+
+/* ---------- HERO (index) ---------- */
+
+html.light-mode #home.hero{
+    background:#fbfbfe;
+}
+
+html.light-mode #home.hero::after{
+    background:linear-gradient(90deg,rgba(251,251,254,.82) 0%,rgba(251,251,254,.35) 30%,rgba(251,251,254,0) 55%);
+}
+
+html.light-mode .hero-text{
+    color:#55565f;
+}
+
+html.light-mode .hero-heading span{
+    background:linear-gradient(90deg,#e0359a,#c29200,#e0359a);
+    background-size:220% 100%;
+    -webkit-background-clip:text;
+    background-clip:text;
+}
+
+html.light-mode .hero-logo{
+    background:transparent;
+    padding:0;
+    border-radius:0;
+}
+
+html.light-mode .hero-logo-dark{
+    display:none;
+}
+
+.hero-logo-light{
+    display:none;
+}
+
+html.light-mode .hero-logo-light{
+    display:block;
+}
+
+.logo .main-icon-light{
+    display:none;
+}
+
+html.light-mode .logo .main-icon-dark{
+    display:none;
+}
+
+html.light-mode .logo .main-icon-light{
+    display:block;
+    background:transparent;
+    padding:0;
+}
+
+html.light-mode .store{
+    background:#ffffff;
+    border-color:#d5d7e0;
+    box-shadow:0 2px 10px rgba(20,22,40,.08);
+}
+
+html.light-mode .store:hover{
+    background:#fffdf4;
+    border-color:#ffca05;
+    box-shadow:0 10px 24px rgba(255,202,5,.28);
+}
+
+html.light-mode .store .stext small{
+    color:#77787f;
+}
+
+html.light-mode .store .stext strong{
+    color:#17181f;
+}
+
+/* ---------- BANNER / LIVE / COMMUNITY / STEPS / REELS ---------- */
+
+html.light-mode .banner{
+    border-color:rgba(0,0,0,.12);
+    background:#eef0f6;
+}
+
+html.light-mode .live-card{
+    background:linear-gradient(145deg,#ffffff,#f1f2f8);
+    border-color:rgba(0,0,0,.08);
+}
+
+html.light-mode .creator small{
+    color:#77777f;
+}
+
+html.light-mode .live-card p{
+    color:#5f6070;
+}
+
+html.light-mode .watch{
+    color:#3d3d46;
+}
+
+html.light-mode .live-info>p{
+    color:#55565f;
+}
+
+html.light-mode .stat-label{
+    color:#66666e;
+}
+
+html.light-mode .community{
+    border-color:rgba(0,0,0,.1);
+}
+
+html.light-mode .community p{
+    color:#55565f;
+}
+
+html.light-mode .tag{
+    border-color:#c9a227;
+    color:#8a6d00;
+}
+
+html.light-mode .reel{
+    background:#e7e8ee;
+}
+
+html.light-mode .view{
+    color:#55565f;
+    border-color:#aaa;
+}
+
+html.light-mode .view:hover{
+    color:#8a6d00;
+    border-color:#c9a227;
+}
+
+/* ---------- FOUNDING BANNER ---------- */
+
+html.light-mode .founding-banner .fb-wrapper{
+    background:linear-gradient(180deg,#fffdf6 0%,#fdf3dd 100%);
+    box-shadow:0 20px 40px rgba(0,0,0,.12);
+}
+
+html.light-mode .founding-banner .fb-title{
+    color:#a5720a;
+}
+
+html.light-mode .founding-banner .fb-middle h2{
+    background:linear-gradient(90deg,#a5720a 0%,#6e4a00 25%,#a5720a 50%,#6e4a00 75%,#a5720a 100%);
+    background-size:200% auto;
+    -webkit-background-clip:text;
+    background-clip:text;
+}
+
+html.light-mode .founding-banner .fb-middle p{
+    color:#6b6b70;
+}
+
+html.light-mode .founding-banner .fb-info{
+    color:#7a5ea0;
+}
+
+/* ---------- DOWNLOAD (dark promo card stays dark) ---------- */
+
+html.light-mode .download{
+    color:#fff;
+}
+
+html.light-mode .download p{
+    color:#e8e2ef;
+}
+
+/* ---------- REELS MODAL ---------- */
+
+html.light-mode .reels-modal{
+    background:rgba(235,236,242,.88);
+}
+
+html.light-mode .reels-modal-box{
+    background:#ffffff;
+    border-color:rgba(0,0,0,.12);
+}
+
+html.light-mode .reels-modal-close{
+    background:rgba(0,0,0,.05);
+    border-color:rgba(0,0,0,.15);
+    color:#33343c;
+}
+
+html.light-mode .reels-modal-close:hover{
+    color:#8a6d00;
+    border-color:#c9a227;
+}
+
+/* ==================================================
+   TAILWIND PAGES (about / news / blog / terms /
+   help-center) - utilities need !important because
+   Tailwind CDN injects its stylesheet later.
+   ================================================== */
+
+html.light-mode body{
+    background-color:#f6f7fb !important;
+    color:#16171d !important;
+}
+
+html.light-mode .text-white{
+    color:#16171d !important;
+}
+
+html.light-mode .group:hover .text-white{
+    color:#fff !important;
+}
+
+html.light-mode .bg-dark-red.text-white,
+html.light-mode .bg-\[\#ffca05\].text-white{
+    color:#fff !important;
+}
+
+html.light-mode .text-gray-400,
+html.light-mode .text-dark-textMuted{
+    color:#5c5d68 !important;
+}
+
+html.light-mode .text-dark-text{
+    color:#26272f !important;
+}
+
+html.light-mode .placeholder-dark-textMuted::placeholder{
+    color:#8a8b96 !important;
+}
+
+html.light-mode .glass-card{
+    background:rgba(255,255,255,.78) !important;
+    border-color:#e3e5ec !important;
+}
+
+html.light-mode .bg-dark-card{
+    background-color:#ffffff !important;
+}
+
+html.light-mode .hover\:bg-\[\#111\]:hover{
+    background-color:#f0f1f6 !important;
+}
+
+html.light-mode .hover\:bg-dark-card:hover{
+    background-color:#f0f1f6 !important;
+}
+
+html.light-mode .hover\:bg-dark-card\/40:hover{
+    background-color:rgba(240,241,246,.6) !important;
+}
+
+html.light-mode .border-dark-border{
+    border-color:#e3e5ec !important;
+}
+
+html.light-mode .bg-dark-border{
+    background-color:#e3e5ec !important;
+}
+
+html.light-mode .bg-dark-bg{
+    background-color:#f0f1f6 !important;
+}
+
+html.light-mode .bg-gray-900{
+    background-color:#e8eaf1 !important;
+}
+
+html.light-mode .bg-\[\#0a0f1d\]{
+    background-color:#eef1f8 !important;
+}
+
+html.light-mode .bg-\[\#111\]{
+    background-color:#ffffff !important;
+}
+
+html.light-mode .hero-glow{
+    opacity:.45;
+}
+
+html.light-mode .curved-bg{
+    background-image:url("../images/ChatGPT%20Image%20Aug%2020,%202026,%2010_33_42%20AM.png");
+    background-position:center 30%;
+}
+
+html.light-mode .curved-bg::after{
+    height:60px;
+    background:linear-gradient(to bottom,transparent,#f6f7fb);
+}
+
+/* ---------- ABOUT PAGE - STORY IMAGE SWAP ---------- */
+
+.story-img-light{
+    display:none;
+}
+
+html.light-mode .story-img-light{
+    display:block;
+}
+
+html.light-mode .story-img-dark{
+    display:none;
+}
+
+/* ---------- INDEX - STEPS IMAGE SWAP ---------- */
+
+.steps-img-light{
+    display:none;
+}
+
+html.light-mode .steps-img-light{
+    display:block;
+}
+
+html.light-mode .steps-img-dark{
+    display:none;
+}
+
+/* ---------- NEWS PAGE - FEATURED IMAGE SWAP ---------- */
+
+.featured-img-light{
+    display:none;
+}
+
+html.light-mode .featured-img-light{
+    display:block;
+}
+
+html.light-mode .featured-img-dark{
+    display:none;
+}
+
+/* ---------- FOOTER IMAGE SWAP ---------- */
+
+.footer-hero .footer-hero-light{
+    display:none;
+}
+
+html.light-mode .footer-hero .footer-hero-light{
+    display:block;
+}
+
+html.light-mode .footer-hero .footer-hero-dark{
+    display:none;
+}
+
+html.light-mode .footer-logo .footer-logo-dark{
+    display:none;
+}
+
+.footer-logo .footer-logo-light{
+    display:none;
+}
+
+html.light-mode .footer-logo .footer-logo-light{
+    display:inline-block;
+}
+
+html.light-mode .footer-text{
+    background:rgba(246,247,251,.55);
+    color:#17181f;
+}
+
+html.light-mode .footer-menu a{
+    color:#3a3b44;
+}
+
+html.light-mode .footer-menu a:hover{
+    color:#b8860b;
+}
+
+html.light-mode .footer-menu a:after{
+    background:#b8860b;
+}
+
+html.light-mode .email{
+    color:#4a4b55;
+}
+
+html.light-mode .email:hover{
+    color:#b8860b;
+}
+
+html.light-mode .social,
+html.light-mode .social a{
+    color:#17181f;
+}
+
+html.light-mode .social a:hover{
+    color:#b8860b;
+    text-shadow:none;
+}
+
+html.light-mode .copy{
+    color:#33343c;
+    border-top-color:rgba(0,0,0,.25);
+}
+
+/* ==================================================
+   FOUNDING MEMBER PAGE (CSS variables override)
+   ================================================== */
+
+html.light-mode{
+    --bg-color:#f6f7fb;
+    --text-main:#16171d;
+    --text-muted:#5c5d68;
+    --gold:#b8860b;
+    --panel-bg:#ffffff;
+    --panel-border:rgba(0,0,0,.1);
+}
+
+html.light-mode .input-wrapper input{
+    background:#ffffff;
+    border-color:#dcdde4;
+    color:#22232b;
+}
+
+html.light-mode .input-wrapper input::placeholder{
+    color:#9a9aa5;
+}
+
+html.light-mode .profile-icon{
+    background:#f6f7fb;
+}
+
+html.light-mode footer{
+    border-top-color:rgba(0,0,0,.08);
+}
+
+html.light-mode .copyright{
+    color:#77777f;
+    border-top-color:rgba(0,0,0,.08);
+}
+
+html.light-mode .social-icons a{
+    border-color:rgba(0,0,0,.2);
+}
+
+html.light-mode .launch-banner{
+    color:#7a4fd0;
+}
+
+html.light-mode .launch-banner::before,
+html.light-mode .launch-banner::after{
+    background:linear-gradient(90deg,transparent,rgba(0,0,0,.2),transparent);
+}
+
+html.light-mode .feature-item:not(:last-child)::after{
+    background:linear-gradient(to bottom,transparent,rgba(0,0,0,.12),transparent);
+}
+
+html.light-mode .bg-x-top,
+html.light-mode .bg-x-bottom{
+    -webkit-text-stroke-color:rgba(160,110,20,.18);
+}
+
+html.light-mode .bg-arch{
+    border-top-color:rgba(111,66,193,.5);
+    box-shadow:0 -30px 100px rgba(111,66,193,.15);
+}
+
+/* ==================================================
+   LIGHT MODE - MOBILE
+   ================================================== */
+
+@media(max-width:850px){
+
+    html.light-mode #home.hero{
+        background:
+            linear-gradient(180deg,rgba(251,251,254,.92) 0%,rgba(251,251,254,.85) 100%),
+            url("../images/banner_image_panel.png");
+        background-size:cover;
+        background-position:center;
+        box-shadow:inset 0 -60px 80px -30px #f6f7fb;
+    }
+
+    html.light-mode .footer-text{
+        background:#ffffff;
+        color:#17181f;
+    }
+}

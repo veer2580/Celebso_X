@@ -8,6 +8,7 @@
 
     document.addEventListener("DOMContentLoaded", function () {
         updateCopyrightYear();
+        initTheme();
         initMobileMenu();
         initReveal();
         initReelSound();
@@ -15,6 +16,20 @@
         initNavScroll();
         initCardTilt();
     });
+
+    function initTheme() {
+        var buttons = document.querySelectorAll(".theme-toggle");
+        if (!buttons.length) return;
+
+        buttons.forEach(function (btn) {
+            btn.addEventListener("click", function () {
+                var light = document.documentElement.classList.toggle("light-mode");
+                try {
+                    localStorage.setItem("celebso-theme", light ? "light" : "dark");
+                } catch (e) {}
+            });
+        });
+    }
 
     function updateCopyrightYear() {
         var copy = document.querySelector(".copy");
