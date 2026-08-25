@@ -329,7 +329,11 @@
 
             <!-- Right: Form -->
             <div class="lg:col-span-7">
-                <form id="contactForm" class="glass-card rounded-3xl p-8 md:p-10 reveal" novalidate>
+                <form id="contactForm" action="https://formsubmit.co/Info.celebso@gmail.com" method="POST" class="glass-card rounded-3xl p-8 md:p-10 reveal">
+
+                    <input type="hidden" name="_subject" value="New Contact Us Message!">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
 
                     <h2 class="text-2xl font-bold mb-2 text-white">Send Us a Message</h2>
                     <p class="text-gray-400 text-sm mb-8">Fill out the form below and we'll get back to you shortly.</p>
@@ -481,9 +485,9 @@
 
         document.addEventListener("DOMContentLoaded", function () {
 
-            /* ---------- CONTACT FORM ---------- */
             var form = document.getElementById("contactForm");
             var status = document.getElementById("formStatus");
+            var submitBtn = form ? form.querySelector('button[type="submit"]') : null;
 
             if (form && status) {
                 form.addEventListener("submit", function (e) {
@@ -518,10 +522,33 @@
                         return;
                     }
 
-                    status.classList.remove("error");
-                    status.innerHTML = "<i class=\"ph ph-check-circle text-lg\"></i> Thank you! Your message has been sent. We'll get back to you soon.";
-                    status.classList.add("show");
-                    form.reset();
+                    if (submitBtn) {
+                        submitBtn.disabled = true;
+                        submitBtn.innerHTML = '<i class="ph ph-spinner animate-spin text-lg"></i> Sending...';
+                    }
+
+                    var formData = new FormData(form);
+
+                    fetch(form.action, {
+                        method: "POST",
+                        body: formData,
+                        headers: { "Accept": "application/json" }
+                    })
+                    .then(function () {
+                        status.innerHTML = '<i class="ph ph-check-circle text-lg"></i> Thank you! Your message has been sent. We\'ll get back to you soon.';
+                        status.classList.add("show");
+                        form.reset();
+                    })
+                    .catch(function () {
+                        status.textContent = "Something went wrong. Please try again later.";
+                        status.classList.add("show", "error");
+                    })
+                    .finally(function () {
+                        if (submitBtn) {
+                            submitBtn.disabled = false;
+                            submitBtn.innerHTML = 'Send Message <i class="ph ph-paper-plane-right"></i>';
+                        }
+                    });
                 });
             }
 
