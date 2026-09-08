@@ -1,0 +1,6 @@
+# Redirect HTTP to HTTPS for CelebsoX
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://app.celebso.com/$1 [R=301,L]
+</IfModule>
