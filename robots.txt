@@ -1,0 +1,6 @@
+# Robots.txt for CelebsoX
+User-agent: *
+Allow: /
+
+# Sitemap for Google Search Console & Search Crawlers
+Sitemap: https://app.celebso.com/sitemap.xml
